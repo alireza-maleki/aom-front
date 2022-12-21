@@ -1,0 +1,15 @@
+.topscroll {
+    width: 74%;
+    margin: 0 auto;
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.right {
+    width: 70%;
+}
+
+.left {
+    width: 30%;
+}
