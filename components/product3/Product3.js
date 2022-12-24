@@ -1,31 +1,25 @@
 import React from 'react';
-import Items from './Items';
 
+import classes from "./Product3.module.css";
 
-import classes from "./Product.module.css";
+import Items3 from './Items3';
 
-
-
-const Product = (props) => {
-
-  console.log(props.products)
-
+const Product3 = (props) => {
   return (
-
     <div className={classes.product}>
       <div className={classes.layout}>
 
         <div className={classes.link}>
           <div>
-            <h4>Well-reviwed Products</h4>
-            <p>Get well reviwed itemsfrom the past 180 days</p>
+            <h4>Exclusive discounts</h4>
+            <p>Exclusive for new customers to the store</p>
             <button>Source Now</button>
           </div>
         </div>
 
 
         <div className={classes.data}>
-          <Items products={props.products} />
+          <Items3 products={props.products} />
         </div>
 
       </div>
@@ -33,6 +27,4 @@ const Product = (props) => {
   )
 }
 
-
-
-export default Product
+export default Product3

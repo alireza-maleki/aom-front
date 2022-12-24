@@ -9,15 +9,31 @@ import Product from '../components/products/product';
 import Search from '../components/search/Search';
 import TopScroll from '../components/topscroll/TopScroll';
 
-const index = () => {
+import { loadProducts } from '../components/getalldata/GetAllData';
+import AutomaticScrollButton from '../components/automatic scroll/AutomaticScrollButton';
+
+const index = (props) => {
   return (
-    <Provider store={store}>
+    <>
       <Header />
       <Search />
       <TopScroll />
-      <Product />
-    </Provider>
+      <HomePage products={props.products} />
+    </>
   )
+}
+
+
+
+export async function getStaticProps(context) {
+
+  const products = await loadProducts();
+
+  return {
+    props: {
+      products
+    }, // will be passed to the page component as props
+  }
 }
 
 export default index;

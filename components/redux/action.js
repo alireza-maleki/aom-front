@@ -16,15 +16,15 @@ export const getData = () => async (dispatch, getState) => {
         }
         return cookieValue;
     }
-    
+
     const csrftoken = getCookie('csrftoken');
 
     dispatch({ type: 'loading', payload: true });
 
     try {
-        const { data } = await axios.get("http://192.168.0.9:2020/v1/homedata/?format=json", {'csrfmiddlewaretoken': csrftoken});
+        const { data } = await axios.get("http://192.168.0.9:2020/v1/homedata/?format=json", { 'csrfmiddlewaretoken': csrftoken });
 
-        console.log(data);
+        console.log(data.products);
         dispatch({ type: 'data', payload: [...data] })
     } catch (error) {
         dispatch({ type: 'error', payload: error.message });

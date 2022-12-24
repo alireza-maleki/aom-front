@@ -6,80 +6,24 @@ const Content = () => {
     return (
         <div className={classes.content}>
             <div>
-                <p>
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                </p>
+                <h2>
+                    Ready to ship
+                </h2>
             </div>
             <div>
-                <p>
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                </p>
+                <h5>
+                    low MOQ .
+                </h5>
             </div>
             <div>
-                <p>
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                </p>
+                <h5>
+                    Order direct .
+                </h5>
             </div>
             <div>
-                <p>
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                    Lorem
-                </p>
+                <h5>
+                    Fast dispatch .
+                </h5>
             </div>
         </div>
     )
