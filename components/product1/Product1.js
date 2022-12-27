@@ -2,7 +2,7 @@ import React from 'react';
 import Items from './Items';
 
 
-import classes from "./Product.module.css";
+import classes from "./Product1.module.css";
 
 
 
@@ -17,9 +17,9 @@ const Product = (props) => {
 
         <div className={classes.link}>
           <div>
-            <h4>Well-reviwed Products</h4>
+            <h4>لاین سرد</h4>
             <p>Get well reviwed itemsfrom the past 180 days</p>
-            <button>Source Now</button>
+            <button>اطلاعات بیشتر</button>
           </div>
         </div>
 

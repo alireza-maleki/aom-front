@@ -6,58 +6,145 @@ import Box from '@mui/material/Box';
 import { useState, useEffect } from 'react';
 
 import classes from "./AutomaticScrollButton.module.css";
-import { loadProducts } from '../getalldata/GetAllData';
-// import Gifts from './Gifts';
+
+import Gifts from '../gifts/Gifts';
+import Tools from '../tools & hardware/Tools';
+import Energy from '../energy/Energy';
+import Accessory from '../accessory/Accessory';
+import Cunsumer from '../cunsumer/Cunsumer';
+import { Category } from '@mui/icons-material';
+
 
 
 export default function AutomaticScrollButton(props) {
   const [value, setValue] = React.useState(0);
 
-  const [category, setCategory] = useState()
+  const [categorys, setCategorys] = useState();
+
   const [gifts, setGifts] = useState(false);
+  const [tools, setTools] = useState(false);
+  const [energy, setEnergy] = useState(false);
+  const [accessory, setAccessory] = useState(false);
+  const [cunsumer, setCunsumer] = useState(false);
+  const [category, setAategory] = useState(false);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-
-
   useEffect(() => {
-    setCategory(props.products);
+    setCategorys(props.products);
+    setGifts((true));
   }, [])
+
+
+
+  const giftHandler = () => {
+    console.log(categorys)
+
+    setEnergy(false);
+    setAccessory(false);
+    setTools(false);
+    setCunsumer(false);
+    setAategory(false);
+
+    setGifts(true);
+  }
+
+  const toolsHandler = () => {
+    console.log(categorys)
+
+    setGifts(false);
+    setEnergy(false);
+    setAccessory(false);
+    setCunsumer(false);
+    setAategory(false);
+
+    setTools(true);
+  }
+
+  const energyHandler = () => {
+    console.log(category)
+
+    setGifts(false);
+    setTools(false);
+    setAccessory(false);
+    setCunsumer(false);
+    setAategory(false);
+
+    setEnergy(true);
+  }
+
+  const accessorysHandler = () => {
+    console.log(category)
+
+    setGifts(false);
+    setTools(false);
+    setEnergy(false);
+    setCunsumer(false);
+    setAategory(false);
+
+    setAccessory(true);
+
+  }
+
+  const cunsumerHandler = () => {
+    console.log(category)
+
+    setGifts(false);
+    setTools(false);
+    setEnergy(false);
+    setAccessory(false);
+    setAategory(false);
+
+    setCunsumer(true);
+  }
 
   const categoryHandler = () => {
     console.log(category)
 
-    setGifts((prev) => !prev)
+    setGifts(false);
+    setTools(false);
+    setEnergy(false);
+    setAccessory(false);
+    setCunsumer(false);
 
+    setAategory(true);
   }
 
 
   return (
-    <div className={classes.tabs}>
+    <>
+      <div className={classes.tabs}>
 
-      <Box sx={{ bgcolor: 'background.paper' }}>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          variant="scrollable"
-          scrollButtons
-          allowScrollButtonsMobile
-          aria-label="scrollable force tabs example"
-        >
-          <Tab onClick={categoryHandler} label="Gifts & Crafts" />
-          <Tab label="Tools & HardWare" />
-          <Tab label="Energy" />
-          <Tab label="Vehicles & Accessories" />
-          <Tab label="Cunsumer Electronics" />
-          <Tab onClick={categoryHandler} label="All categoris" />
+        <Box sx={{ bgcolor: 'background.paper' }}>
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            // variant="scrollable"
+            scrollButtons
+            allowScrollButtonsMobile
+            aria-label="scrollable force tabs example"
+          >
+            <Tab onClick={giftHandler} label="Gifts & Crafts" />
+            <Tab onClick={toolsHandler} label="Tools & HardWare" />
+            <Tab onClick={energyHandler} label="Energy" />
+            <Tab onClick={accessorysHandler} label="Vehicles & Accessories" />
+            <Tab onClick={cunsumerHandler} label="Cunsumer Electronics" />
+            <Tab onClick={categoryHandler} label="All categoris" />
 
 
-        </Tabs>
-      </Box>
+          </Tabs>
+        </Box>
 
-    </div>
+      </div>
+      {gifts ? <Gifts products={props.products} /> : ''}
+      {tools ? <Tools products={props.products} /> : ''}
+      {energy ? <Energy products={props.products} /> : ''}
+      {accessory ? <Accessory products={props.products} /> : ''}
+      {cunsumer ? <Cunsumer products={props.products} /> : ''}
+      {category ? <Category products={props.products} /> : ''}
+    </>
 
   );
 }

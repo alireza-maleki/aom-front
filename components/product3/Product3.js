@@ -11,9 +11,9 @@ const Product3 = (props) => {
 
         <div className={classes.link}>
           <div>
-            <h4>Exclusive discounts</h4>
+            <h4>کافی شاپ</h4>
             <p>Exclusive for new customers to the store</p>
-            <button>Source Now</button>
+            <button>اطلاعات بیشتر</button>
           </div>
         </div>
 

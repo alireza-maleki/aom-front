@@ -11,9 +11,9 @@ const Product2 = (props) => {
 
         <div className={classes.link}>
           <div>
-            <h4>Order by case</h4>
+            <h4>لاین گرم</h4>
             <p>Enjoy discounts with bulk orders</p>
-            <button>Source Now</button>
+            <button>اطلاعات بیشتر</button>
           </div>
         </div>
 

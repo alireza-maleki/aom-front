@@ -5,12 +5,14 @@ import store from '../components/redux/store';
 
 import Header from '../components/header/Header';
 import HomePage from '../components/home/HomePAge';
-import Product from '../components/products/product';
+import Product from '../components/product1/Product1';
 import Search from '../components/search/Search';
 import TopScroll from '../components/topscroll/TopScroll';
 
 import { loadProducts } from '../components/getalldata/GetAllData';
-import AutomaticScrollButton from '../components/automatic scroll/AutomaticScrollButton';
+import NavbarFixed from '../components/navbar fixed/NavbarFixed';
+
+
 
 const index = (props) => {
   return (
@@ -19,6 +21,7 @@ const index = (props) => {
       <Search />
       <TopScroll />
       <HomePage products={props.products} />
+      <NavbarFixed />
     </>
   )
 }
