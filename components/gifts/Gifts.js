@@ -18,9 +18,8 @@ const Gifts = (props) => {
 
                 products.filter((item) => item.id < 6)
                 .map((item) => (
-                    <ul className={classes.gift}>
+                    <ul key={item.id} className={classes.gift}>
                         <GiftsItem
-                            key={item.id}
                             title={item.title}
                             desc={item.description}
                             image={item.image}

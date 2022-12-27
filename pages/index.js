@@ -31,6 +31,7 @@ const index = (props) => {
 export async function getStaticProps(context) {
 
   const products = await loadProducts();
+  
 
   return {
     props: {

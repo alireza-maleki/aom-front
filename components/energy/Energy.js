@@ -16,9 +16,8 @@ const Energy = (props) => {
 
                 products.filter((item) => item.rating.count > 300)
                     .map((item) => (
-                        <ul className={classes.gift}>
+                        <ul key={item.id} className={classes.gift}>
                             <EnergyItem
-                                key={item.id}
                                 title={item.title}
                                 desc={item.description}
                                 image={item.image}

@@ -12,7 +12,7 @@ import Tools from '../tools & hardware/Tools';
 import Energy from '../energy/Energy';
 import Accessory from '../accessory/Accessory';
 import Cunsumer from '../cunsumer/Cunsumer';
-import { Category } from '@mui/icons-material';
+import Category from "../category/Category";
 
 
 
@@ -26,7 +26,7 @@ export default function AutomaticScrollButton(props) {
   const [energy, setEnergy] = useState(false);
   const [accessory, setAccessory] = useState(false);
   const [cunsumer, setCunsumer] = useState(false);
-  const [category, setAategory] = useState(false);
+  const [category, setCategory] = useState(false);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -35,6 +35,9 @@ export default function AutomaticScrollButton(props) {
   useEffect(() => {
     setCategorys(props.products);
     setGifts((true));
+
+    scrollWindowHandler()
+
   }, [])
 
 
@@ -46,7 +49,7 @@ export default function AutomaticScrollButton(props) {
     setAccessory(false);
     setTools(false);
     setCunsumer(false);
-    setAategory(false);
+    setCategory(false);
 
     setGifts(true);
   }
@@ -58,7 +61,7 @@ export default function AutomaticScrollButton(props) {
     setEnergy(false);
     setAccessory(false);
     setCunsumer(false);
-    setAategory(false);
+    setCategory(false);
 
     setTools(true);
   }
@@ -70,7 +73,7 @@ export default function AutomaticScrollButton(props) {
     setTools(false);
     setAccessory(false);
     setCunsumer(false);
-    setAategory(false);
+    setCategory(false);
 
     setEnergy(true);
   }
@@ -82,7 +85,7 @@ export default function AutomaticScrollButton(props) {
     setTools(false);
     setEnergy(false);
     setCunsumer(false);
-    setAategory(false);
+    setCategory(false);
 
     setAccessory(true);
 
@@ -95,7 +98,7 @@ export default function AutomaticScrollButton(props) {
     setTools(false);
     setEnergy(false);
     setAccessory(false);
-    setAategory(false);
+    setCategory(false);
 
     setCunsumer(true);
   }
@@ -109,7 +112,16 @@ export default function AutomaticScrollButton(props) {
     setAccessory(false);
     setCunsumer(false);
 
-    setAategory(true);
+    setCategory(true);
+  }
+
+  // ################################
+  const scrollWindowHandler = () => {
+
+    window.addEventListener("scrollY", (e) => {
+      console.log(e)
+    })
+
   }
 
 
@@ -117,7 +129,7 @@ export default function AutomaticScrollButton(props) {
     <>
       <div className={classes.tabs}>
 
-        <Box sx={{ bgcolor: 'background.paper' }}>
+        <Box onClick={scrollWindowHandler} sx={{ bgcolor: 'background.paper' }}>
           <Tabs
             value={value}
             onChange={handleChange}

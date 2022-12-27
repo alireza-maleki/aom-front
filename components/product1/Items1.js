@@ -1,9 +1,9 @@
 import React from 'react';
 
-import classes from "./Items.module.css";
+import classes from "./Items1.module.css";
 
 
-const Items = (props) => {
+const Items1 = (props) => {
 
     const { products } = props;
 
@@ -28,4 +28,6 @@ const Items = (props) => {
     )
 }
 
-export default Items
+export default Items1
+
+

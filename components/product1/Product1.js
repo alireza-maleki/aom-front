@@ -1,19 +1,18 @@
 import React from 'react';
-import Items from './Items';
+import Items1 from './Items1';
 
 
 import classes from "./Product1.module.css";
 
 
-
-const Product = (props) => {
+const Product1 = (props) => {
 
   console.log(props.products)
 
   return (
 
-    <div className={classes.product}>
-      <div className={classes.layout}>
+    <div className={classes.product} >
+      <div className={classes.layout} >
 
         <div className={classes.link}>
           <div>
@@ -25,7 +24,7 @@ const Product = (props) => {
 
 
         <div className={classes.data}>
-          <Items products={props.products} />
+          <Items1 products={props.products} />
         </div>
 
       </div>
@@ -35,4 +34,5 @@ const Product = (props) => {
 
 
 
-export default Product
+export default Product1
+

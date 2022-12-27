@@ -5,8 +5,9 @@ import classes from "./Product2.module.css";
 import Items2 from './Items2';
 
 const Product2 = (props) => {
+
   return (
-    <div className={classes.product}>
+    <div className={classes.product} >
       <div className={classes.layout}>
 
         <div className={classes.link}>
