@@ -4,11 +4,11 @@ import classes from "./Items4.module.css";
 
 const Items4 = (props) => {
 
-    const { products } = props;
+    const { data } = props;
 
     return (
         <>
-            {products.filter((item) => item.rating.count > 400)
+            {data
                 .map((item) => (
                     <div className={classes.detail} key={item.id}>
 
@@ -17,7 +17,7 @@ const Items4 = (props) => {
                         </div>
 
                         <div className={classes.summary}>
-                            <p>{item.category}</p>
+                            <p>{item.name}</p>
                             <h4>{item.price}$ - 100.2$</h4>
                         </div>
 

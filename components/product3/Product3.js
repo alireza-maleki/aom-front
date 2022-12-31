@@ -11,7 +11,7 @@ const Product3 = (props) => {
 
         <div className={classes.link}>
           <div>
-            <h4>کافی شاپ</h4>
+            <h4>{props.data[2].name}</h4>
             <p>Exclusive for new customers to the store</p>
             <button>اطلاعات بیشتر</button>
           </div>
@@ -19,7 +19,7 @@ const Product3 = (props) => {
 
 
         <div className={classes.data}>
-          <Items3 products={props.products} />
+          <Items3 data={props.data} />
         </div>
 
       </div>

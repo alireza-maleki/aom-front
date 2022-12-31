@@ -7,7 +7,7 @@ import classes from "./Product1.module.css";
 
 const Product1 = (props) => {
 
-  console.log(props.products)
+  console.log(props.data)
 
   return (
 
@@ -16,7 +16,7 @@ const Product1 = (props) => {
 
         <div className={classes.link}>
           <div>
-            <h4>لاین سرد</h4>
+            <h4>{props.data[0].name}</h4>
             <p>Get well reviwed itemsfrom the past 180 days</p>
             <button>اطلاعات بیشتر</button>
           </div>
@@ -24,7 +24,7 @@ const Product1 = (props) => {
 
 
         <div className={classes.data}>
-          <Items1 products={props.products} />
+          <Items1 data={props.data} />
         </div>
 
       </div>

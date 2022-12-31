@@ -4,11 +4,11 @@ import classes from "./Items5.module.css";
 
 const Items5 = (props) => {
 
-    const { products } = props;
+    const { data } = props;
 
     return (
         <>
-            {products.filter((item) => item.rating.count < 140)
+            {data
                 .map((item) => (
                     <div className={classes.detail} key={item.id}>
 

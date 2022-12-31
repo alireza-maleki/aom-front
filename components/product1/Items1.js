@@ -5,11 +5,11 @@ import classes from "./Items1.module.css";
 
 const Items1 = (props) => {
 
-    const { products } = props;
+    const { data } = props;
 
     return (
         <>
-            {products.filter((item) => item.id < 5)
+            {data.filter((ids) => ids.id < 4)
                 .map((item) => (
                     <div className={classes.detail} key={item.id}>
 
@@ -18,7 +18,7 @@ const Items1 = (props) => {
                         </div>
 
                         <div className={classes.summary}>
-                            <p>{item.category}</p>
+                            <p>{item.name}</p>
                             <h4>{item.price}$ - 12.2$</h4>
                         </div>
 

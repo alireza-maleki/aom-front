@@ -12,7 +12,7 @@ const Product2 = (props) => {
 
         <div className={classes.link}>
           <div>
-            <h4>لاین گرم</h4>
+            <h4>{props.data[1].name}</h4>
             <p>Enjoy discounts with bulk orders</p>
             <button>اطلاعات بیشتر</button>
           </div>
@@ -20,7 +20,7 @@ const Product2 = (props) => {
 
 
         <div className={classes.data}>
-          <Items2 products={props.products} />
+          <Items2 data={props.data} />
         </div>
 
       </div>

@@ -19,12 +19,12 @@ import Category from '../category/Category';
 const HomePage = (props) => {
     return (
         <div className={classes.homapage}>
-            <Product1 products={props.products} />
-            <Product2 products={props.products} />
-            <Product3 products={props.products} />
-            <Product4 products={props.products} />
-            <Product5 products={props.products} />
-            <AutomaticSearch products={props.products} />
+            <Product1 data={props.data} />
+            <Product2 data={props.data} />
+            <Product3 data={props.data} />
+            <Product4 data={props.data} />
+            <Product5 data={props.data} />
+            <AutomaticSearch products={props.products} data={props.data} />
             <Gifts />
             <Tools />
             <Energy />
