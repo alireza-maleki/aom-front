@@ -5,6 +5,8 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import { useState, useEffect } from 'react';
 
+import axios from 'axios';
+
 import classes from "./AutomaticScrollButton.module.css";
 
 import Gifts from '../gifts/Gifts';
@@ -28,6 +30,39 @@ export default function AutomaticScrollButton(props) {
   const [cunsumer, setCunsumer] = useState(false);
   const [category, setCategory] = useState(false);
 
+  let offset = 5;
+  const [pokemon, setPokemon] = useState([]);
+
+  const loadMorePokemon = () => {
+
+    axios.get(`https://fakestoreapi.com/products?limit=${offset}`).then(({ data }) => {
+
+      const newPokemon = [];
+      data.forEach((item) => newPokemon.push(item));
+      setPokemon(newPokemon);
+
+    });
+
+    offset += 5;
+
+  };
+
+
+  const handelScroll = (e) => {
+
+    if (
+      window.innerHeight + e.target.documentElement.scrollTop + 1 >=
+      e.target.documentElement.scrollHeight
+    ) {
+      loadMorePokemon(window.innerHeight);
+    }
+
+    console.log()
+
+  }
+
+
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -35,6 +70,9 @@ export default function AutomaticScrollButton(props) {
   useEffect(() => {
     setCategorys(props.products);
     setGifts((true));
+
+    loadMorePokemon();
+    window.addEventListener('scroll', handelScroll)
 
     scrollWindowHandler()
 
@@ -51,6 +89,9 @@ export default function AutomaticScrollButton(props) {
     setCunsumer(false);
     setCategory(false);
 
+    // ### Scroll To Top
+    window.scrollTo(0, 1600);
+
     setGifts(true);
   }
 
@@ -62,6 +103,9 @@ export default function AutomaticScrollButton(props) {
     setAccessory(false);
     setCunsumer(false);
     setCategory(false);
+
+    // ### Scroll To Top
+    window.scrollTo(0, 1600);
 
     setTools(true);
   }
@@ -75,6 +119,9 @@ export default function AutomaticScrollButton(props) {
     setCunsumer(false);
     setCategory(false);
 
+    // ### Scroll To Top
+    window.scrollTo(0, 1600);
+
     setEnergy(true);
   }
 
@@ -86,6 +133,9 @@ export default function AutomaticScrollButton(props) {
     setEnergy(false);
     setCunsumer(false);
     setCategory(false);
+
+    // ### Scroll To Top
+    window.scrollTo(0, 1600);
 
     setAccessory(true);
 
@@ -100,6 +150,9 @@ export default function AutomaticScrollButton(props) {
     setAccessory(false);
     setCategory(false);
 
+    // ### Scroll To Top
+    window.scrollTo(0, 1600);
+
     setCunsumer(true);
   }
 
@@ -111,6 +164,9 @@ export default function AutomaticScrollButton(props) {
     setEnergy(false);
     setAccessory(false);
     setCunsumer(false);
+
+    // ### Scroll To Top
+    window.scrollTo(0, 1600);
 
     setCategory(true);
   }
@@ -150,7 +206,7 @@ export default function AutomaticScrollButton(props) {
         </Box>
 
       </div>
-      {gifts ? <Gifts products={props.products} /> : ''}
+      {gifts ? <Gifts products={pokemon} /> : ''}
       {tools ? <Tools products={props.products} /> : ''}
       {energy ? <Energy products={props.products} /> : ''}
       {accessory ? <Accessory products={props.products} /> : ''}

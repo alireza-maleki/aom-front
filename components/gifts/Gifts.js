@@ -8,7 +8,7 @@ const Gifts = (props) => {
 
     const { products } = props;
 
-    console.log(products)
+    // console.log(products)
 
     return (
         <>
@@ -16,18 +16,18 @@ const Gifts = (props) => {
             {
                 products &&
 
-                products.filter((item) => item.id < 6)
-                .map((item) => (
-                    <ul key={item.id} className={classes.gift}>
-                        <GiftsItem
-                            title={item.title}
-                            desc={item.description}
-                            image={item.image}
-                            price={item.price}
-                            category={item.category}
-                        />
-                    </ul>
-                ))
+                products
+                    .map((item) => (
+                        <ul key={item.id} className={classes.gift}>
+                            <GiftsItem
+                                title={item.title}
+                                desc={item.description}
+                                image={item.image}
+                                price={item.price}
+                                category={item.category}
+                            />
+                        </ul>
+                    ))
 
             }
 
