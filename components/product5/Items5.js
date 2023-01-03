@@ -6,19 +6,26 @@ const Items5 = (props) => {
 
     const { data } = props;
 
+    const dashData = data
+        .map((item) => (
+            item.adverts
+        ))
+
+    console.log(dashData[1]);
+
     return (
         <>
-            {data
+            {dashData[1]
                 .map((item) => (
                     <div className={classes.detail} key={item.id}>
 
                         <div className={classes.image}>
-                            <img src={item.image} />
+                            <img src={item.image0} />
                         </div>
 
                         <div className={classes.summary}>
-                            <p>{item.category}</p>
-                            <h4>{item.price}$ - 100.2$</h4>
+                            <p>{item.title}</p>
+                            <h4>{item.description}</h4>
                         </div>
 
                     </div>

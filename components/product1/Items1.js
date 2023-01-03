@@ -7,19 +7,29 @@ const Items1 = (props) => {
 
     const { data } = props;
 
+    // const lodashData = data.adverts;
+    // console.log(lodashData)
+
+    const dashData = data
+        .map((item) => (
+            item.adverts
+        ))
+
+    console.log(dashData[0]);
+
     return (
         <>
-            {data.filter((ids) => ids.id < 4)
+            {dashData[0]
                 .map((item) => (
                     <div className={classes.detail} key={item.id}>
 
                         <div className={classes.image}>
-                            <img src={item.image} />
+                            <img src={item.image0} />
                         </div>
 
                         <div className={classes.summary}>
-                            <p>{item.name}</p>
-                            <h4>{item.price}$ - 12.2$</h4>
+                            <p>{item.title}</p>
+                            <h4>{item.description}</h4>
                         </div>
 
                     </div>

@@ -144,6 +144,7 @@
 .right select:focus,
 .right input:focus {
     outline: 1px solid rgb(73, 157, 247);
+    box-shadow: 1px 1px 3px rgb(73, 157, 247);
 }
 
 /* ##### Left Select */
@@ -231,6 +232,7 @@
 .left select:focus,
 .left input:focus {
     outline: 1px solid rgb(73, 157, 247);
+    box-shadow: 1px 1px 3px rgb(73, 157, 247);
 }
 
 
@@ -258,6 +260,7 @@
 .address input:focus,
 .history textarea:focus {
     outline: 1px solid rgb(73, 157, 247);
+    box-shadow: 1px 1px 3px rgb(73, 157, 247);
 } 
 
 .address input, 
