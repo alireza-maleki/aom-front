@@ -32,11 +32,12 @@ export default function AutomaticScrollButton(props) {
 
   let offset = 5;
   const [pokemon, setPokemon] = useState([]);
+  
 
   const loadMorePokemon = () => {
 
-    axios.get(`https://fakestoreapi.com/products?limit=${offset}`).then(({ data }) => {
-
+    axios.get(`http://192.168.0.206:1212/v1/scrol-data/${offset}/3`).then(({ data }) => {
+      
       const newPokemon = [];
       data.forEach((item) => newPokemon.push(item));
       setPokemon(newPokemon);
@@ -194,12 +195,12 @@ export default function AutomaticScrollButton(props) {
             allowScrollButtonsMobile
             aria-label="scrollable force tabs example"
           >
-            <Tab onClick={giftHandler} label="Gifts & Crafts" />
-            <Tab onClick={toolsHandler} label="Tools & HardWare" />
-            <Tab onClick={energyHandler} label="Energy" />
-            <Tab onClick={accessorysHandler} label="Vehicles & Accessories" />
-            <Tab onClick={cunsumerHandler} label="Cunsumer Electronics" />
-            <Tab onClick={categoryHandler} label="All categoris" />
+            <Tab className={classes.gif} onClick={giftHandler} label="لاین گرم" />
+            <Tab onClick={toolsHandler} label="لاین سرد" />
+            <Tab onClick={energyHandler} label="کافی شاپ" />
+            <Tab onClick={accessorysHandler} label="خدمات مرتبط" />
+            <Tab onClick={cunsumerHandler} label="آماده سازی" />
+            {/* <Tab onClick={categoryHandler} label="All categoris" /> */}
 
 
           </Tabs>
@@ -211,7 +212,7 @@ export default function AutomaticScrollButton(props) {
       {energy ? <Energy products={props.products} /> : ''}
       {accessory ? <Accessory products={props.products} /> : ''}
       {cunsumer ? <Cunsumer products={props.products} /> : ''}
-      {category ? <Category products={props.products} /> : ''}
+      {/* {category ? <Category products={props.products} /> : ''} */}
     </>
 
   );

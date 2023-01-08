@@ -8,6 +8,7 @@ import HomePage from '../components/home/HomePAge';
 import Product from '../components/product1/Product1';
 import Search from '../components/search/Search';
 import TopScroll from '../components/topscroll/TopScroll';
+import Footer from '../components/footer/Footer';
 
 import { loadData, loadProducts } from '../components/getalldata/GetAllData';
 import NavbarFixed from '../components/navbar fixed/NavbarFixed';
@@ -21,8 +22,9 @@ const index = (props) => {
       <Header />
       <Search />
       <TopScroll />
-      <HomePage products={props.products} data={props.data}/>
+      <HomePage products={props.products} data={props.data} />
       <NavbarFixed />
+      {/* <Footer /> */}
     </>
   )
 }
@@ -32,7 +34,7 @@ const index = (props) => {
 export async function getStaticProps(context) {
 
   const products = await loadProducts();
-  
+
   const data = await loadData();
 
   return {
@@ -40,6 +42,7 @@ export async function getStaticProps(context) {
       products,
       data
     }, // will be passed to the page component as props
+    revalidate: 60,
   }
 }
 

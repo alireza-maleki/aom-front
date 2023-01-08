@@ -19,7 +19,7 @@ const Items1 = (props) => {
 
     return (
         <>
-            {dashData[0]
+            {dashData[0].filter((ids) => ids.id < 27)
                 .map((item) => (
                     <div className={classes.detail} key={item.id}>
 
