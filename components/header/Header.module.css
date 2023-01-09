@@ -110,6 +110,7 @@
     color: #fff;
     font-size: 20px;
     cursor: pointer;
+    user-select: none;
     /* background-color: red; */
 }
 
@@ -128,4 +129,14 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 10px;
+}
+
+.rigth .login a {
+    text-decoration: none;
+    color: blue;
+}
+
+.rigth .login:hover {
+    background-color: rgb(150, 150, 251);
+    color: #fff;
 }

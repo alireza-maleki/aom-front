@@ -1,12 +1,12 @@
 
 
-export async function loadProducts() {
-  // Call an external API endpoint to get posts
-  const res = await fetch('https://fakestoreapi.com/products')
-  const products = await res.json()
+// export async function loadProducts() {
+//   // Call an external API endpoint to get posts
+//   const res = await fetch('https://fakestoreapi.com/products')
+//   const products = await res.json()
 
-  return products
-}
+//   return products
+// }
 
 export async function loadData() {
   // Call an external API endpoint to get posts
@@ -15,4 +15,5 @@ export async function loadData() {
 
   return data
 }
+
 

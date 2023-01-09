@@ -2,6 +2,8 @@ import React, { Fragment } from 'react';
 import { Provider } from 'react-redux';
 import store from '../components/redux/store';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 import Header from '../components/header/Header';
 import HomePage from '../components/home/HomePAge';
@@ -22,7 +24,7 @@ const index = (props) => {
       <Header />
       <Search />
       <TopScroll />
-      <HomePage products={props.products} data={props.data} />
+      <HomePage data={props.data} />
       <NavbarFixed />
       {/* <Footer /> */}
     </>
@@ -33,13 +35,13 @@ const index = (props) => {
 
 export async function getStaticProps(context) {
 
-  const products = await loadProducts();
+  // const products = await loadProducts();
 
   const data = await loadData();
 
   return {
     props: {
-      products,
+      // products,
       data
     }, // will be passed to the page component as props
     revalidate: 60,

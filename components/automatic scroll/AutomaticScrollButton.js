@@ -30,32 +30,168 @@ export default function AutomaticScrollButton(props) {
   const [cunsumer, setCunsumer] = useState(false);
   const [category, setCategory] = useState(false);
 
-  let offset = 5;
-  const [pokemon, setPokemon] = useState([]);
-  
+  // ##### Sard Function
+  let offset1 = 5;
+  const [pokemon1, setPokemon1] = useState([]);
 
-  const loadMorePokemon = () => {
 
-    axios.get(`http://192.168.0.206:1212/v1/scrol-data/${offset}/3`).then(({ data }) => {
-      
-      const newPokemon = [];
-      data.forEach((item) => newPokemon.push(item));
-      setPokemon(newPokemon);
+  const loadMorePokemon1 = () => {
+
+    axios.get(`http://192.168.0.206:1212/v1/scrol-data/${offset1}/3`).then(({ data }) => {
+
+      const newPokemon1 = [];
+      data.forEach((item) => newPokemon1.push(item));
+      setPokemon1(newPokemon1);
 
     });
 
-    offset += 5;
+    offset1 += 5;
 
   };
 
-
-  const handelScroll = (e) => {
+  // #####  
+  const handelScroll1 = (e) => {
 
     if (
       window.innerHeight + e.target.documentElement.scrollTop + 1 >=
       e.target.documentElement.scrollHeight
     ) {
-      loadMorePokemon(window.innerHeight);
+      loadMorePokemon1(window.innerHeight);
+    }
+
+    console.log()
+
+  }
+
+
+  // ##### Garm Function
+  let offset2 = 5;
+  const [pokemon2, setPokemon2] = useState([]);
+
+
+  const loadMorePokemon2 = () => {
+
+    axios.get(`http://192.168.0.206:1212/v1/scrol-data/${offset2}/4`).then(({ data }) => {
+
+      const newPokemon2 = [];
+      data.forEach((item) => newPokemon2.push(item));
+      setPokemon2(newPokemon2);
+
+    });
+
+    offset2 += 5;
+
+  };
+
+  // #####
+  const handelScroll2 = (e) => {
+
+    if (
+      window.innerHeight + e.target.documentElement.scrollTop + 1 >=
+      e.target.documentElement.scrollHeight
+    ) {
+      loadMorePokemon2(window.innerHeight);
+    }
+
+    console.log()
+
+  }
+
+
+  // ##### Cafe Function
+  let offset3 = 5;
+  const [pokemon3, setPokemon3] = useState([]);
+
+
+  const loadMorePokemon3 = () => {
+
+    axios.get(`http://192.168.0.206:1212/v1/scrol-data/${offset3}/3`).then(({ data }) => {
+
+      const newPokemon3 = [];
+      data.forEach((item) => newPokemon3.push(item));
+      setPokemon3(newPokemon3);
+
+    });
+
+    offset3 += 5;
+
+  };
+
+  // #####
+  const handelScroll3 = (e) => {
+
+    if (
+      window.innerHeight + e.target.documentElement.scrollTop + 1 >=
+      e.target.documentElement.scrollHeight
+    ) {
+      loadMorePokemon3(window.innerHeight);
+    }
+
+    console.log()
+
+  }
+
+  // ##### Khadamat Function
+  let offset4 = 5;
+  const [pokemon4, setPokemon4] = useState([]);
+
+
+  const loadMorePokemon4 = () => {
+
+    axios.get(`http://192.168.0.206:1212/v1/scrol-data/${offset4}/4`).then(({ data }) => {
+
+      const newPokemon4 = [];
+      data.forEach((item) => newPokemon4.push(item));
+      setPokemon4(newPokemon4);
+
+    });
+
+    offset4 += 5;
+
+  };
+
+  // #####
+  const handelScroll4 = (e) => {
+
+    if (
+      window.innerHeight + e.target.documentElement.scrollTop + 1 >=
+      e.target.documentElement.scrollHeight
+    ) {
+      loadMorePokemon4(window.innerHeight);
+    }
+
+    console.log()
+
+  }
+
+
+  // ##### Adamde-Sazi Function
+  let offset5 = 5;
+  const [pokemon5, setPokemon5] = useState([]);
+
+
+  const loadMorePokemon5 = () => {
+
+    axios.get(`http://192.168.0.206:1212/v1/scrol-data/${offset5}/5`).then(({ data }) => {
+
+      const newPokemon5 = [];
+      data.forEach((item) => newPokemon5.push(item));
+      setPokemon5(newPokemon5);
+
+    });
+
+    offset4 += 5;
+
+  };
+
+  // #####
+  const handelScroll5 = (e) => {
+
+    if (
+      window.innerHeight + e.target.documentElement.scrollTop + 1 >=
+      e.target.documentElement.scrollHeight
+    ) {
+      loadMorePokemon5(window.innerHeight);
     }
 
     console.log()
@@ -64,18 +200,25 @@ export default function AutomaticScrollButton(props) {
 
 
 
+
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
   useEffect(() => {
+
     setCategorys(props.products);
     setGifts((true));
 
-    loadMorePokemon();
-    window.addEventListener('scroll', handelScroll)
+    loadMorePokemon1();
 
-    scrollWindowHandler()
+    window.addEventListener('scroll', handelScroll1)
+    window.addEventListener('scroll', handelScroll2)
+    window.addEventListener('scroll', handelScroll3)
+    window.addEventListener('scroll', handelScroll4)
+    window.addEventListener('scroll', handelScroll5)
+
 
   }, [])
 
@@ -105,6 +248,8 @@ export default function AutomaticScrollButton(props) {
     setCunsumer(false);
     setCategory(false);
 
+    loadMorePokemon2();
+
     // ### Scroll To Top
     window.scrollTo(0, 1600);
 
@@ -120,6 +265,8 @@ export default function AutomaticScrollButton(props) {
     setCunsumer(false);
     setCategory(false);
 
+    loadMorePokemon3();
+
     // ### Scroll To Top
     window.scrollTo(0, 1600);
 
@@ -134,6 +281,8 @@ export default function AutomaticScrollButton(props) {
     setEnergy(false);
     setCunsumer(false);
     setCategory(false);
+
+    loadMorePokemon4();
 
     // ### Scroll To Top
     window.scrollTo(0, 1600);
@@ -151,42 +300,21 @@ export default function AutomaticScrollButton(props) {
     setAccessory(false);
     setCategory(false);
 
+    loadMorePokemon5();
+
     // ### Scroll To Top
     window.scrollTo(0, 1600);
 
     setCunsumer(true);
   }
 
-  const categoryHandler = () => {
-    console.log(category)
-
-    setGifts(false);
-    setTools(false);
-    setEnergy(false);
-    setAccessory(false);
-    setCunsumer(false);
-
-    // ### Scroll To Top
-    window.scrollTo(0, 1600);
-
-    setCategory(true);
-  }
-
-  // ################################
-  const scrollWindowHandler = () => {
-
-    window.addEventListener("scrollY", (e) => {
-      console.log(e)
-    })
-
-  }
 
 
   return (
     <>
       <div className={classes.tabs}>
 
-        <Box onClick={scrollWindowHandler} sx={{ bgcolor: 'background.paper' }}>
+        <Box sx={{ bgcolor: 'background.paper' }}>
           <Tabs
             value={value}
             onChange={handleChange}
@@ -195,24 +323,24 @@ export default function AutomaticScrollButton(props) {
             allowScrollButtonsMobile
             aria-label="scrollable force tabs example"
           >
-            <Tab className={classes.gif} onClick={giftHandler} label="لاین گرم" />
-            <Tab onClick={toolsHandler} label="لاین سرد" />
-            <Tab onClick={energyHandler} label="کافی شاپ" />
-            <Tab onClick={accessorysHandler} label="خدمات مرتبط" />
-            <Tab onClick={cunsumerHandler} label="آماده سازی" />
-            {/* <Tab onClick={categoryHandler} label="All categoris" /> */}
+            <Tab className={classes.tab} onClick={giftHandler} label="لاین گرم" />
+            <Tab className={classes.tab} onClick={toolsHandler} label="لاین سرد" />
+            <Tab className={classes.tab} onClick={energyHandler} label="کافی شاپ" />
+            <Tab className={classes.tab} onClick={accessorysHandler} label="خدمات مرتبط" />
+            <Tab className={classes.tab} onClick={cunsumerHandler} label="آماده سازی" />
 
 
           </Tabs>
         </Box>
 
       </div>
-      {gifts ? <Gifts products={pokemon} /> : ''}
-      {tools ? <Tools products={props.products} /> : ''}
-      {energy ? <Energy products={props.products} /> : ''}
-      {accessory ? <Accessory products={props.products} /> : ''}
-      {cunsumer ? <Cunsumer products={props.products} /> : ''}
-      {/* {category ? <Category products={props.products} /> : ''} */}
+
+      {gifts ? <Gifts products={pokemon1} /> : ''}
+      {tools ? <Tools products={pokemon2} /> : ''}
+      {energy ? <Energy products={pokemon3} /> : ''}
+      {accessory ? <Accessory products={pokemon4} /> : ''}
+      {cunsumer ? <Cunsumer products={pokemon5} /> : ''}
+
     </>
 
   );
@@ -220,35 +348,4 @@ export default function AutomaticScrollButton(props) {
 
 
 
-// import * as React from 'react';
-// import Box from '@mui/material/Box';
-// import Tab from '@mui/material/Tab';
-// import TabContext from '@mui/lab/TabContext';
-// import TabList from '@mui/lab/TabList';
-// import TabPanel from '@mui/lab/TabPanel';
-
-// export default function LabTabs() {
-//   const [value, setValue] = React.useState('1');
-
-//   const handleChange = (event, newValue) => {
-//     setValue(newValue);
-//   };
-
-//   return (
-//     <Box sx={{ width: '100%', typography: 'body1' }}>
-//       <TabContext value={value}>
-//         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-//           <TabList onChange={handleChange} aria-label="lab API tabs example">
-//             <Tab label="Item One" value="1" />
-//             <Tab label="Item Two" value="2" />
-//             <Tab label="Item Three" value="3" />
-//           </TabList>
-//         </Box>
-//         <TabPanel value="1">Item One</TabPanel>
-//         <TabPanel value="2">Item Two</TabPanel>
-//         <TabPanel value="3">Item Three</TabPanel>
-//       </TabContext>
-//     </Box>
-//   );
-// }
 

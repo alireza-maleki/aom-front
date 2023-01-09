@@ -14,7 +14,7 @@ const Cunsumer = (props) => {
             {
                 products &&
 
-                products.filter((item) => item.rating.rate > 4)
+                products
                     .map((item) => (
                         <ul key={item.id} className={classes.gift}>
                             <CunsumerItem

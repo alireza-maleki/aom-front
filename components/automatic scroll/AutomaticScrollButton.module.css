@@ -9,14 +9,15 @@
 }
 
 
-.gif {
-    width: 200px;
+.tab {
+    width: 220px;
     font-size: 18px;
     font-weight: bold;
     color: #000;
 }
 
-.gif:active, 
-.gif:hover {
+.tab:active, 
+.tab:hover {
     background-color: rgba(91, 113, 239, 0.2);
 }
+

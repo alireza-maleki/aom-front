@@ -14,7 +14,7 @@ const Tools = (props) => {
             {
                 products &&
 
-                products.filter((item) => item.id >12)
+                products
                     .map((item) => (
                         <ul key={item.id} className={classes.gift}>
                             <ToolsItem

@@ -14,7 +14,7 @@ const Accessory = (props) => {
             {
                 products &&
 
-                products.filter((item) => item.rating.count < 160)
+                products
                     .map((item) => (
                         <ul key={item.id} className={classes.gift}>
                             <AccessoryItem
