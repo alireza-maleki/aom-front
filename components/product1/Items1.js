@@ -38,6 +38,6 @@ const Items1 = (props) => {
     )
 }
 
-export default Items1
+export default Items1;
 
 

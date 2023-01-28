@@ -1,7 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 
+import { useS3Upload } from "next-s3-upload";
 import classes from "./Khadamat.module.css";
+import { Select } from '@mui/material';
 
 
 const Khadamat = () => {
@@ -43,8 +45,8 @@ const Khadamat = () => {
                         </label>
 
                         <label>
-                            زیر گروه
-                            <span>*</span>
+                            محصول
+                            <span></span>
                         </label>
 
                         <label>
@@ -52,72 +54,130 @@ const Khadamat = () => {
                             <span>*</span>
                         </label>
 
-                        <label>
-                            فنی
-                            <span>*</span>
-                        </label>
-
-                        <label>
-                            پرداخت
-                            <span>*</span>
-                        </label>
-
-                        <label>
-                            استان درج آگهی
-                            <span>*</span>
-                        </label>
 
                         <label>
                             آدرس
-                            <span>*</span>
+                            <span></span>
                         </label>
+                       
 
                     </div>
 
                     <div className={classes.control}>
+                        <div className={classes.select1}>
 
-                        <div>
+                            <select>
+                                <option>  ------ </option>
+                                <option>  ----- </option>
+                                <option>   -----  </option>
+                            </select>
+
                             <select>
                                 <option>-----</option>
                             </select>
-                        </div>
 
-                        <div>
                             <select>
                                 <option>-----</option>
                             </select>
+
                         </div>
 
-
-                        <div>
-                            <select>
-                                <option>-----</option>
-                            </select>
+                        <div className={classes.select24}>
+                            <div>
+                                <input type="text" />
+                            </div>
                         </div>
 
-
-                        <div>
-                            <select>
-                                <option>-----</option>
-                            </select>
-                        </div>
-
-
-                        <div>
-                            <select>
-                                <option>-----</option>
-                            </select>
-                        </div>
-
-
-
-                        <div>
-                            <input type="text" />
-                        </div>
 
                     </div>
 
                 </div>
+
+                <div className={classes.leftcontrol}>
+
+                    <div className={classes.textleft} >
+                        
+
+                        <label>
+                            برند
+                            <span></span>
+                        </label>
+
+                        <label>
+                            قیمت
+                            <span></span>
+                        </label>
+
+                        <label>
+                           وضعیت
+                            <span>*</span>
+                        </label>
+
+                        <label>
+                            تلفن
+                            <span></span>
+                        </label>
+
+
+                    </div>
+                    <div className={classes.controlleft}>
+                        <div className={classes.selectleft}>
+                            <div>
+                                <select>
+                                    <option>-----</option>
+                                </select>
+                            </div>
+
+                           
+                            <div>
+                            <div className={classes.select30}>
+                                <input type="text" placeholder="قیمت را ثبت نمایید"/>
+                               <div className={classes.sel31}>
+                                <select>
+                                    <option>تومان</option>
+                                    <option>دلار</option>
+                                    <option>یورو</option>
+                                </select>
+                                </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <select>
+                                    <option>-----</option>
+                                </select>
+                            </div>
+
+                           
+
+                            <div>
+                                <select>
+                                    <option>-----</option>
+                                </select>
+                            </div>
+                           <div></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div className={classes.textarea} >
+                    <div>
+                        <label>
+                            توضیحات
+                        </label>
+                    </div>
+                    <div className={classes.textarea2}>
+                        <textarea rows="12" cols="120"> </textarea>
+                    </div>
+                </div>
+
+                <div className={classes.btn1}>
+                    <button class="btn1">انتخاب تصویر اصلی</button> </div>
+                <div className={classes.btn2}><button class="btn2">تصویر فرعی اول </button></div>
+                <div className={classes.btn3}><button class="btn3">تصویر فرعی اول </button></div>
+                <div className={classes.btn4}><button class="btn4">تصویر فرعی اول </button></div>
+
+
 
             </div>
 

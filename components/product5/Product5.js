@@ -27,4 +27,4 @@ const Product5 = (props) => {
     )
 }
 
-export default Product5
+export default Product5;

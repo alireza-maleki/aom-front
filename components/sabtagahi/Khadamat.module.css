@@ -1,7 +1,7 @@
 .khadamt {
     width: 100%;
     height: 100vh;
-    background-color: rgb(87, 87, 87);
+    background-color: rgb(184,184,184);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,9 +11,10 @@
 .container {
     width: 60%;
     height: 780px;
-    background-color: rgba(204, 204, 204, 0.5);
+    background-color: rgb(93,93,92);
     border-radius: 10px;
     margin-top: 2%;
+    
 }
 
 .head {
@@ -28,7 +29,7 @@
 
 .head p {
     font-size: 15px;
-    color: #000;
+    color: rgb(246, 242, 242);
     margin-top: -30px;
 }
 
@@ -91,19 +92,38 @@
     align-items: center;
     width: 60%;
     height: 400px;
-    background-color: red;
+    
 }
+
 
 .text {
     width: 20%;
-    height: 400px;
+    height: 230px;
     /* background-color: red; */
+    color: #fff;
     display: flex;
     align-items: flex-end;
     justify-content: space-around;
     flex-direction: column;
-    margin: 50px 20px 0 0;
+    margin: -160px 10px 0 0;
     position: relative;
+    left: 5%;
+}
+.textprice{
+    color: #000080;
+}
+.textleft{
+    width: 20%;
+    height: 220px;
+    /* background-color: red; */
+    color: #fff;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    margin:  -34% 45% 0 0;
+    position: relative;
+    
 }
 
 .text span {
@@ -111,7 +131,62 @@
     font-size: 25px;
     position: absolute;
 }
+.textleft span{
+    color: red;
+    font-size: 25px;
+    position: absolute;
+}
+.textarea{
+    margin: 35px 100px 0 0  ;
+    color: #fff;
+}
+.textarea2{
+    /* display: inline; */
+    margin: -40px 87px 0 0;
+}
+.select1{
+    width: 100%;
+    height: 45%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    
+    
+}
+.select1 select {
+    width: 65%;
+    height: 34px;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px;
+    
+}
+.select24 {
+    width: 100%;
+    height: 50%;
 
+}
+.select24 input{
+    width: 65%;
+    height: 35px;
+    border-radius: 5px;
+   
+    
+}
+
+.select30 input{
+    width: 72%;
+    height: 35px;
+    border-radius: 5px;
+    position: relative;
+}
+.sel31{
+    width: 35%;    
+    margin-right: 73%;
+    margin-top: -12%;
+
+}
 .control {
     display: flex;
     justify-content: space-around;
@@ -119,5 +194,48 @@
     flex-direction: column;
     width: 70%;
     height: 400px;
-    background-color: blue;
+    /* background-color: blue; */
+}
+
+.controlleft{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    height: 420px;
+    /* background-color: blue;  */
+    margin: -385px 620px 0 0;
+    
+}
+.selectleft{
+    width: 50%;
+    height: 65%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-top: 30%;
+    margin-right: 2%;
+}
+.selectleft select{
+    width: 110%;
+    height: 35px;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+
+}
+.btn1{
+    margin: 25px 250px 0 0 ;
+}
+
+
+.btn2{
+    margin: -24px 490px 0 0 ;
+}
+.btn3{
+    margin: -24px 720px 0 0 ;
+}
+.btn4{
+    margin: -24px 950px 0 0 ;
 }

@@ -34,4 +34,4 @@ const Items5 = (props) => {
     )
 }
 
-export default Items5
+export default Items5;

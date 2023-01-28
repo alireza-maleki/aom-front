@@ -5,7 +5,6 @@ import classes from "./Product2.module.css";
 import Items2 from './Items2';
 
 const Product2 = (props) => {
-
   return (
     <div className={classes.product} >
       <div className={classes.layout}>
@@ -28,4 +27,4 @@ const Product2 = (props) => {
   )
 }
 
-export default Product2
+export default Product2;
