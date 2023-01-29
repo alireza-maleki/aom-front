@@ -25,7 +25,7 @@ const Popup = (props) => {
                             <Link href="/khadamat">
                                 خدمات
                             </Link>
-                            <Link href="/">
+                            <Link href="/sabt-rahandazi">
                                 ثبت و راه اندازی
                             </Link>
                             <Link href="/estekhdam">
