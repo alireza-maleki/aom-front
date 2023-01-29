@@ -105,7 +105,7 @@ export default function AutomaticScrollButton(props) {
 
   const loadMorePokemon3 = () => {
 
-    axios.get(`http://192.168.0.206:1212/v1/scrol-data/${offset3}/7`).then(({ data }) => {
+    axios.get(`http://192.168.0.206:1212/v1/scrol-data/${offset3}/5`).then(({ data }) => {
 
       const newPokemon3 = [];
       data.forEach((item) => newPokemon3.push(item));
