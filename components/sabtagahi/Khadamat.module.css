@@ -30,7 +30,6 @@
 .head p {
     font-size: 15px;
     color: rgb(246, 242, 242);
-    margin-top: -30px;
 }
 
 .link {
@@ -48,7 +47,11 @@
     background-color: #5c5cfe;
     font-size: 12px;
 }
-
+.link2{
+    width: 5%;
+    border-bottom: 1px solid red;
+    padding-right: 10%;
+}
 .link span {
     color: red;
     font-size: 20px;
@@ -105,9 +108,9 @@
     align-items: flex-end;
     justify-content: space-around;
     flex-direction: column;
-    margin: -160px 10px 0 0;
+    margin: -160px 20px 0 0;
     position: relative;
-    left: 5%;
+    left: 4%;
 }
 .textprice{
     color: #000080;
@@ -145,7 +148,7 @@
     margin: -40px 87px 0 0;
 }
 .select1{
-    width: 100%;
+    width: 105%;
     height: 45%;
     display: flex;
     justify-content: space-around;
@@ -168,7 +171,7 @@
 
 }
 .select24 input{
-    width: 65%;
+    width: 68%;
     height: 35px;
     border-radius: 5px;
    
@@ -178,12 +181,12 @@
 .select30 input{
     width: 72%;
     height: 35px;
-    border-radius: 5px;
+    border-radius: 6px;
     position: relative;
 }
 .sel31{
     width: 35%;    
-    margin-right: 73%;
+    margin-right: 72%;
     margin-top: -12%;
 
 }

@@ -173,7 +173,9 @@ const Khadamat = () => {
 
                 <div className={classes.btn1}>
                     <button class="btn1">انتخاب تصویر اصلی</button> </div>
-                <div className={classes.btn2}><button class="btn2">تصویر فرعی اول </button></div>
+                <div className={classes.btn2}>
+                    <button class="btn2">تصویر فرعی اول </button></div>
+                
                 <div className={classes.btn3}><button class="btn3">تصویر فرعی اول </button></div>
                 <div className={classes.btn4}><button class="btn4">تصویر فرعی اول </button></div>
 
