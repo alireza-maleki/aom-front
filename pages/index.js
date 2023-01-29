@@ -21,12 +21,10 @@ const index = (props) => {
 
   return (
     <>
-      <Header />
       <Search />
       <TopScroll />
       <HomePage data={props.data} />
       <NavbarFixed />
-      {/* <Footer /> */}
     </>
   )
 }

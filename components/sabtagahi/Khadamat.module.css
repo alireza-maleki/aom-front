@@ -82,6 +82,7 @@
     padding: 0.5rem 1rem;
     font-size: 16px;
     outline: none;
+    outline: none;
 }
 
 .container input:focus {
@@ -163,6 +164,7 @@
     cursor: pointer;
     border-radius: 5px;
     margin: 10px;
+    outline: none;
     
 }
 .select24 {
