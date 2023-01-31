@@ -46,12 +46,12 @@ const Khadamat = () => {
 
                         <label>
                             محصول
-                            <span></span>
+                            <span>*</span>
                         </label>
 
                         <label>
                             ساخت
-                            <span>*</span>
+                            <span></span>
                         </label>
 
 
@@ -68,8 +68,10 @@ const Khadamat = () => {
 
                             <select>
                                 <option>  ------ </option>
-                                <option>  ----- </option>
-                                <option>   -----  </option>
+                                <option>  کافی شاپ  </option>
+                                <option>  لاین گرم  </option>
+                                <option>  لاین سرد  </option>
+                                <option>  آماده سازی  </option>
                             </select>
 
                             <select>
@@ -114,7 +116,7 @@ const Khadamat = () => {
                         </label>
 
                         <label>
-                            تلفن
+                           استان
                             <span></span>
                         </label>
 
@@ -134,9 +136,8 @@ const Khadamat = () => {
                                 <input type="text" placeholder="قیمت را ثبت نمایید"/>
                                <div className={classes.sel31}>
                                 <select>
+                                    <option>توافقی</option>
                                     <option>تومان</option>
-                                    <option>دلار</option>
-                                    <option>یورو</option>
                                 </select>
                                 </div>
                                 </div>
@@ -163,16 +164,18 @@ const Khadamat = () => {
                 <div className={classes.textarea} >
                     <div>
                         <label>
-                            توضیحات
+                            توضیحات <span>*</span>
                         </label>
                     </div>
                     <div className={classes.textarea2}>
-                        <textarea rows="12" cols="120"> </textarea>
+                        <textarea rows="12" cols="120" placeholder="توضیحات خود را ثبت نمایید"> </textarea>
                     </div>
                 </div>
 
-                <div className={classes.btn1}>
-                    <button class="btn1">انتخاب تصویر اصلی</button> </div>
+                <div className={classes.file}>
+                            <label>عکس خود را وارد کنید</label>
+                            <input type="file" />
+                        </div>  
                 <div className={classes.btn2}>
                     <button class="btn2">تصویر فرعی اول </button></div>
                 

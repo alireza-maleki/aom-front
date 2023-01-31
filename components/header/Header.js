@@ -34,7 +34,9 @@ const Header = () => {
                                 {/* <p>جیلیز</p> */}
                             </li>
                             <li>
+                                <Link href="/">
                                 <img src='/images/home.png' />
+                                </Link>
                             </li>
 
                             <li>

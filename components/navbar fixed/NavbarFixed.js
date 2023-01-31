@@ -31,19 +31,7 @@ const NavbarFixed = () => {
                     </div>
                 </div>
             </div>
-            <div className={classes.navfix2}>
-                <div className={classes.selecttwo}>
-                    <select>
-                        <option>استانها</option>
-                    </select>
-                    <select>
-                        <option>خدمات مرتبط</option>
-                    </select>
-                </div>
-                <div className={classes.btn}>
-                    <button>اعمال فیلتر</button>
-                </div>
-            </div>
+          
         </>
     )
 }

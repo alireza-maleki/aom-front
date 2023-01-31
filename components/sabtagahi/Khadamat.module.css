@@ -69,6 +69,11 @@
     position: absolute;
     margin: 5px 2px 0 0px;
 }
+.textarea span{
+    color: red;
+    font-size: 25px;
+    position: absolute;
+}
 
 .mozo label {
     margin: 0 20px;
