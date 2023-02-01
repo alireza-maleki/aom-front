@@ -1,12 +1,72 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 
-import { useS3Upload } from "next-s3-upload";
 import classes from "./Khadamat.module.css";
-import { Select } from '@mui/material';
+
+
+import axios from 'axios';
 
 
 const Khadamat = () => {
+
+    const [selectData, setSelectData] = useState([]);
+
+    const [postId, setPostId] = useState();
+
+    const [getCategory, setGetCategory] = useState();
+
+
+    // ### Get Data ###
+
+    useEffect(() => {
+
+
+
+    }, [])
+
+    const getApiHandler = async () => {
+
+        // console.log("ali");
+
+        try {
+
+            const { data } = await axios.get("http://192.168.0.206:1212/advert/v1/get-good-categorys/");
+            setSelectData(data);
+
+        } catch (error) {
+
+            console.log(error.message)
+
+        }
+        console.log(selectData)
+    }
+
+
+    // ### Post Data ###
+    const OptionChangeHandler = async (e) => {
+
+        setPostId(e.target.value)
+
+        // console.log("change")
+        console.log(postId)
+
+        try {
+
+            const category = await axios.get(`http://192.168.0.206:1212/advert/v1/category-childs/${postId}/`)
+
+            console.log(category.data.products)
+
+            setGetCategory(category.data.products)
+
+        } catch (error) {
+
+            // console.log(error.message)
+
+        }
+
+
+    }
+
     return (
 
         <div className={classes.khadamt}>
@@ -59,23 +119,38 @@ const Khadamat = () => {
                             آدرس
                             <span></span>
                         </label>
-                       
+
 
                     </div>
 
                     <div className={classes.control}>
                         <div className={classes.select1}>
 
-                            <select>
-                                <option>  ------ </option>
-                                <option>  کافی شاپ  </option>
-                                <option>  لاین گرم  </option>
-                                <option>  لاین سرد  </option>
-                                <option>  آماده سازی  </option>
+                            <select onClick={getApiHandler} onChange={(e) => OptionChangeHandler(e)}>
+                                <option> ------ </option>
+
+                                {selectData ? (
+                                    <>
+                                        {selectData.map((item) => (
+                                            <option value={item.id} key={item.id}> {item.name} </option>
+                                        ))}
+                                    </>
+                                ) : ""}
+
+
                             </select>
 
                             <select>
                                 <option>-----</option>
+
+                                {getCategory ? (
+                                    <>
+                                        {getCategory.map((item) => (
+                                            <option key={item.id}> {item.name} </option>
+                                        ))}
+                                    </>
+                                ) : ""}
+
                             </select>
 
                             <select>
@@ -98,7 +173,7 @@ const Khadamat = () => {
                 <div className={classes.leftcontrol}>
 
                     <div className={classes.textleft} >
-                        
+
 
                         <label>
                             برند
@@ -111,12 +186,12 @@ const Khadamat = () => {
                         </label>
 
                         <label>
-                           وضعیت
+                            وضعیت
                             <span>*</span>
                         </label>
 
                         <label>
-                           استان
+                            استان
                             <span></span>
                         </label>
 
@@ -130,16 +205,16 @@ const Khadamat = () => {
                                 </select>
                             </div>
 
-                           
+
                             <div>
-                            <div className={classes.select30}>
-                                <input type="text" placeholder="قیمت را ثبت نمایید"/>
-                               <div className={classes.sel31}>
-                                <select>
-                                    <option>توافقی</option>
-                                    <option>تومان</option>
-                                </select>
-                                </div>
+                                <div className={classes.select30}>
+                                    <input type="text" placeholder="قیمت را ثبت نمایید" />
+                                    <div className={classes.sel31}>
+                                        <select>
+                                            <option>توافقی</option>
+                                            <option>تومان</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
 
@@ -149,14 +224,14 @@ const Khadamat = () => {
                                 </select>
                             </div>
 
-                           
+
 
                             <div>
                                 <select>
                                     <option>-----</option>
                                 </select>
                             </div>
-                           <div></div>
+                            <div></div>
                         </div>
                     </div>
 
@@ -168,19 +243,19 @@ const Khadamat = () => {
                         </label>
                     </div>
                     <div className={classes.textarea2}>
-                        <textarea rows="12" cols="120" placeholder="توضیحات خود را ثبت نمایید"> </textarea>
+                        <textarea rows="12" cols="120" placeholder="توضیحات خود را ثبت نمایید"></textarea>
                     </div>
                 </div>
 
                 <div className={classes.file}>
-                            <label>عکس خود را وارد کنید</label>
-                            <input type="file" />
-                        </div>  
+                    <label>عکس خود را وارد کنید</label>
+                    <input type="file" />
+                </div>
                 <div className={classes.btn2}>
-                    <button class="btn2">تصویر فرعی اول </button></div>
-                
-                <div className={classes.btn3}><button class="btn3">تصویر فرعی اول </button></div>
-                <div className={classes.btn4}><button class="btn4">تصویر فرعی اول </button></div>
+                    <button>تصویر فرعی اول </button></div>
+
+                <div className={classes.btn3}><button >تصویر فرعی اول </button></div>
+                <div className={classes.btn4}><button >تصویر فرعی اول </button></div>
 
 
 
