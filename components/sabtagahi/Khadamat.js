@@ -17,53 +17,57 @@ const Khadamat = () => {
 
 
     // ### Get Data ###
-
-    useEffect(() => {
-
-
-
-    }, [])
-
     const getApiHandler = async () => {
 
         // console.log("ali");
 
-        try {
+        if (selectData.length == 0) {
 
-            const { data } = await axios.get("http://192.168.0.206:1212/advert/v1/get-good-categorys/");
-            setSelectData(data);
+            try {
 
-        } catch (error) {
+                const { data } = await axios.get("http://192.168.0.206:1212/advert/v1/get-good-categorys/");
+                setSelectData(data);
 
-            console.log(error.message)
+            } catch (error) {
+
+                console.log(error.message)
+
+            }
+            console.log(selectData)
 
         }
-        console.log(selectData)
+
     }
 
+
+    useEffect(() => {
+
+    }, [])
 
     // ### Post Data ###
     const OptionChangeHandler = async (e) => {
 
-        setPostId(e.target.value)
+        if (e.target.value == '0') {
 
-        // console.log("change")
-        console.log(postId)
+            setPostId("")
 
-        try {
+        } else {
+            try {
+                setPostId(e.target.value)
+                const category = await axios.get(`http://192.168.0.206:1212/advert/v1/category-childs/${e.target.value}/`)
 
-            const category = await axios.get(`http://192.168.0.206:1212/advert/v1/category-childs/${postId}/`)
+                console.log(category.data.products)
 
-            console.log(category.data.products)
+                setGetCategory(category.data.products)
 
-            setGetCategory(category.data.products)
+            } catch (error) {
 
-        } catch (error) {
+                // console.log(error.message)
 
-            // console.log(error.message)
+            }
 
+            console.log(postId)
         }
-
 
     }
 
@@ -126,7 +130,7 @@ const Khadamat = () => {
                     <div className={classes.control}>
                         <div className={classes.select1}>
 
-                            <select onClick={getApiHandler} onChange={(e) => OptionChangeHandler(e)}>
+                            <select onClick={getApiHandler} onChange={(e) => OptionChangeHandler(e)} required>
                                 <option> ------ </option>
 
                                 {selectData ? (
@@ -140,8 +144,8 @@ const Khadamat = () => {
 
                             </select>
 
-                            <select>
-                                <option>-----</option>
+                            <select required>
+                                <option value="0">-----</option>
 
                                 {getCategory ? (
                                     <>
@@ -219,7 +223,7 @@ const Khadamat = () => {
                             </div>
 
                             <div>
-                                <select>
+                                <select required>
                                     <option>-----</option>
                                 </select>
                             </div>
