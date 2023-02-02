@@ -75,17 +75,55 @@ const Khadamat = () => {
 
         <div className={classes.khadamt}>
 
-            <div className={classes.head}>
-                <h5>ثبت مشخصات کالا و خدمات</h5>
-                <p>خواهشمنداست،اطلاعات مورد نظر خود را متناسب با گروه انتخابی آگهی با ذکر جزئیات ثبت نمائید . </p>
+        <div className={classes.rightcontrol}>
+          <div className={classes.text}>
+            <label>
+              گروه کالایی
+              <span>*</span>
+            </label>
+
+            <label>
+              محصول
+              <span>*</span>
+            </label>
+
+            <label>
+              ساخت
+              <span></span>
+            </label>
+
+            <label>
+              آدرس
+              <span></span>
+            </label>
+          </div>
+
+          <div className={classes.control}>
+            <div className={classes.select1}>
+              <select>
+                <option> ------ </option>
+                <option> کافی شاپ </option>
+                <option> لاین گرم </option>
+                <option> لاین سرد </option>
+                <option> آماده سازی </option>
+              </select>
+
+              <select>
+                <option>-----</option>
+              </select>
+
+              <select>
+                <option>-----</option>
+              </select>
             </div>
 
-            <div className={classes.link}>
-                <Link href="/khadamat">
-                    درج آگهی جدید
-                    <span>+</span>
-                </Link>
+            <div className={classes.select24}>
+              <div>
+                <input type="text" />
+              </div>
             </div>
+          </div>
+        </div>
 
             <div className={classes.container}>
 
@@ -264,17 +302,51 @@ const Khadamat = () => {
 
 
             </div>
-
+          </div>
+        </div>
+        <div className={classes.textarea}>
+          <div>
+            <label>
+              توضیحات <span>*</span>
+            </label>
+          </div>
+          <div className={classes.textarea2}>
+            <textarea
+              rows="12"
+              cols="120"
+              placeholder="توضیحات خود را ثبت نمایید"
+            >
+              {" "}
+            </textarea>
+          </div>
         </div>
 
-
-    )
-}
+        <div className={` ${classes.file}`}>
+          <div className={`p-3 ${classes.file1}`}>
+            <input className="form-control" type="file" id="formFile" />
+          </div>
+          <div className={`p-3 ${classes.file2}`}>
+            <input className="form-control" type="file" id="formFile" />
+          </div>
+          <div className={`p-3 ${classes.file3}`}>
+            <input className="form-control" type="file" id="formFile" />
+          </div>
+          <div className={`p-3 ${classes.file4}`}>
+            <input className="form-control" type="file" id="formFile" />
+          </div>
+          <div className={classes.action}>
+            <button>ذخیره اطلاعات</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Khadamat;
 
-
-{/* <div>
+{
+  /* <div>
 <label>گروه کالایی</label>
 <select>
     <option>-----</option>
@@ -337,4 +409,5 @@ export default Khadamat;
 <div>
 <label>آدرس</label>
 <input type="text" disabled />
-</div> */}
+</div> */
+}

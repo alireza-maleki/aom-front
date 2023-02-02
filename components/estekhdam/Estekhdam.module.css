@@ -17,7 +17,7 @@
   background-color: rgb(253, 253, 253);
   height: 70%;
   margin-top: 25px;
-  margin-right: 53vh;
+  margin-right: 49.5vh;
 }
 .middle .forml {
   width: 25%;
@@ -78,7 +78,7 @@ margin-top: -10px;
 }
 
 .action button {
-    width: 50%;
+    width: 60%;
     height: 40px;
     border-radius: 5px;
     border: none;
