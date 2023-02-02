@@ -9,14 +9,32 @@ import axios from 'axios';
 
 const Khadamat = () => {
 
+    // ### Products Group UseState ###
     const [selectData, setSelectData] = useState([]);
-
     const [postId, setPostId] = useState();
 
+    // ### Products UseState ###
     const [getCategory, setGetCategory] = useState();
+    const [categoryId, setGetCategoryId] = useState();
+
+    // ### Sakht UseState ###
+    const [getSakht, setGetSakht] = useState([]);
+    const [sakht, setSakht] = useState();
+
+    // ### Ostan UseState ###
+    const [getOstan, setGetOstan] = useState([]);
+    const [ostan, setOstan] = useState();
+
+    // ### Brand UseState ###
+    const [getBrand, setGetBrand] = useState([]);
+    const [brand, setBrand] = useState();
+
+    // ### Moxo UseState ###
+    const [mozo, setMozo] = useState();
 
 
-    // ### Get Data ###
+
+    // ### Get Prodeucts Group ###
     const getApiHandler = async () => {
 
         // console.log("ali");
@@ -39,21 +57,17 @@ const Khadamat = () => {
 
     }
 
-
-    useEffect(() => {
-
-    }, [])
-
-    // ### Post Data ###
+    // ### Get Products ###
     const OptionChangeHandler = async (e) => {
+
+        setPostId(e.target.value);
 
         if (e.target.value == '0') {
 
-            setPostId("")
+            console.log("zero")
 
         } else {
             try {
-                setPostId(e.target.value)
                 const category = await axios.get(`http://192.168.0.206:1212/advert/v1/category-childs/${e.target.value}/`)
 
                 console.log(category.data.products)
@@ -66,8 +80,83 @@ const Khadamat = () => {
 
             }
 
-            console.log(postId)
         }
+        console.log(postId)
+
+    }
+
+    // ### Save Products Data ###
+    const categoryOnclick = (e) => {
+        setGetCategoryId(e.target.value)
+    }
+
+    // ### Get Contry ###
+    const sakhtDataOnclick = async () => {
+
+        const { data } = await axios.get("http://192.168.0.206:1212/advert/v1/countrys-made-by/");
+        setGetSakht(data);
+        console.log(data);
+    }
+
+    // ### Save Sakht Data ###
+    const sakhtDataOnchange = (e) => {
+        setSakht(e.target.value);
+    }
+
+
+    // ### Get Ostan ###
+    const ostanDataOnclick = async () => {
+        const { data } = await axios.get("http://192.168.0.206:1212/advert/v1/citys/");
+        setGetOstan(data);
+        console.log(data);
+    }
+
+    // ### Save Ostan Data ### 
+    const ostanDataOnchange = (e) => {
+        setOstan(e.target.value);
+    }
+
+    // ### Get Brand ###
+    const brandOnclick = async () => {
+        const { data } = await axios.get("http://192.168.0.206:1212/advert/v1/brands/");
+        setGetBrand(data);
+        console.log(data);
+    }
+
+    // ### Save Brand Data ###
+    const brandOnchange = (e) => {
+        setBrand(e.target.value);
+    }
+
+
+    // ### Save Mozo Data ###
+    const mozoOnchange = (e) => {
+        setMozo(e.target.value)
+    }
+
+    let agahiDetail = {
+        categorys: [selectData, categoryId],
+        title: mozo,
+        description: "ali",
+        agreement_price: "20.2",
+        city: ostan,
+        status_type: "نو"
+    }
+
+    const submitDataHandler = (e) => {
+
+        e.preventDefault();
+
+        axios.post("192.168.0.206:1313/advert/v1/make-advert/", {
+            agahiDetail
+        })
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
 
     }
 
@@ -75,55 +164,9 @@ const Khadamat = () => {
 
         <div className={classes.khadamt}>
 
-        <div className={classes.rightcontrol}>
-          <div className={classes.text}>
-            <label>
-              گروه کالایی
-              <span>*</span>
-            </label>
-
-            <label>
-              محصول
-              <span>*</span>
-            </label>
-
-            <label>
-              ساخت
-              <span></span>
-            </label>
-
-            <label>
-              آدرس
-              <span></span>
-            </label>
-          </div>
-
-          <div className={classes.control}>
-            <div className={classes.select1}>
-              <select>
-                <option> ------ </option>
-                <option> کافی شاپ </option>
-                <option> لاین گرم </option>
-                <option> لاین سرد </option>
-                <option> آماده سازی </option>
-              </select>
-
-              <select>
-                <option>-----</option>
-              </select>
-
-              <select>
-                <option>-----</option>
-              </select>
-            </div>
-
-            <div className={classes.select24}>
-              <div>
-                <input type="text" />
-              </div>
-            </div>
-          </div>
-        </div>
+            {/* <div className={classes.rightcontrol}>
+                
+            </div> */}
 
             <div className={classes.container}>
 
@@ -134,7 +177,7 @@ const Khadamat = () => {
                         <span>*</span>
                     </label>
 
-                    <input type='text' placeholder='موضوع آگهی را ثبت نمایید' />
+                    <input type='text' placeholder='موضوع آگهی را ثبت نمایید' onChange={mozoOnchange} required />
                 </div>
 
                 <div className={classes.rightcontrol}>
@@ -182,21 +225,30 @@ const Khadamat = () => {
 
                             </select>
 
-                            <select required>
+                            <select required onChange={categoryOnclick}>
                                 <option value="0">-----</option>
 
                                 {getCategory ? (
                                     <>
                                         {getCategory.map((item) => (
-                                            <option key={item.id}> {item.name} </option>
+                                            <option value={item.id} key={item.id}> {item.name} </option>
                                         ))}
                                     </>
                                 ) : ""}
 
                             </select>
 
-                            <select>
+                            <select onClick={sakhtDataOnclick} onChange={(e) => sakhtDataOnchange(e)}>
                                 <option>-----</option>
+
+                                {getSakht ? (
+                                    <>
+                                        {getSakht.map((item) => (
+                                            <option value={item.id} key={item.id}> {item.name} </option>
+                                        ))}
+                                    </>
+                                ) : ""}
+
                             </select>
 
                         </div>
@@ -242,8 +294,17 @@ const Khadamat = () => {
                     <div className={classes.controlleft}>
                         <div className={classes.selectleft}>
                             <div>
-                                <select>
+                                <select onClick={brandOnclick} onChange={(e) => brandOnchange(e)}>
                                     <option>-----</option>
+
+                                    {getBrand ? (
+                                        <>
+                                            {getBrand.map((item) => (
+                                                <option value={item.id} key={item.id}> {item.name} </option>
+                                            ))}
+                                        </>
+                                    ) : ""}
+
                                 </select>
                             </div>
 
@@ -261,16 +322,27 @@ const Khadamat = () => {
                             </div>
 
                             <div>
-                                <select required>
-                                    <option>-----</option>
+                                <select required >
+                                    <option value="">-----</option>
+                                    <option>نو</option>
+                                    <option>کارکرده</option>
                                 </select>
                             </div>
 
 
 
                             <div>
-                                <select>
+                                <select onClick={ostanDataOnclick} onChange={(e) => ostanDataOnchange(e)}>
                                     <option>-----</option>
+
+                                    {getOstan ? (
+                                        <>
+                                            {getOstan.map((item) => (
+                                                <option value={item.id} key={item.id}> {item.name_city} </option>
+                                            ))}
+                                        </>
+                                    ) : ""}
+
                                 </select>
                             </div>
                             <div></div>
@@ -289,7 +361,15 @@ const Khadamat = () => {
                     </div>
                 </div>
 
-                <div className={classes.file}>
+                <div className='row col-12'>
+
+                    <div className='col-lg-8'>
+                        <button className='btn btn-success text-white' onClick={submitDataHandler}>ذخیره اطلاعات</button>
+                    </div>
+
+                </div>
+
+                {/* <div className={classes.file}>
                     <label>عکس خود را وارد کنید</label>
                     <input type="file" />
                 </div>
@@ -297,117 +377,15 @@ const Khadamat = () => {
                     <button>تصویر فرعی اول </button></div>
 
                 <div className={classes.btn3}><button >تصویر فرعی اول </button></div>
-                <div className={classes.btn4}><button >تصویر فرعی اول </button></div>
+                <div className={classes.btn4}><button >تصویر فرعی اول </button></div> */}
 
 
 
             </div>
-          </div>
-        </div>
-        <div className={classes.textarea}>
-          <div>
-            <label>
-              توضیحات <span>*</span>
-            </label>
-          </div>
-          <div className={classes.textarea2}>
-            <textarea
-              rows="12"
-              cols="120"
-              placeholder="توضیحات خود را ثبت نمایید"
-            >
-              {" "}
-            </textarea>
-          </div>
         </div>
 
-        <div className={` ${classes.file}`}>
-          <div className={`p-3 ${classes.file1}`}>
-            <input className="form-control" type="file" id="formFile" />
-          </div>
-          <div className={`p-3 ${classes.file2}`}>
-            <input className="form-control" type="file" id="formFile" />
-          </div>
-          <div className={`p-3 ${classes.file3}`}>
-            <input className="form-control" type="file" id="formFile" />
-          </div>
-          <div className={`p-3 ${classes.file4}`}>
-            <input className="form-control" type="file" id="formFile" />
-          </div>
-          <div className={classes.action}>
-            <button>ذخیره اطلاعات</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default Khadamat;
 
-{
-  /* <div>
-<label>گروه کالایی</label>
-<select>
-    <option>-----</option>
-    <option>کافی شاپ</option>
-    <option>لاین سرد</option>
-    <option>لاین گرم</option>
-    <option>آماده سازی</option>
-    <option>خدمات مرتبط</option>
-</select>
-</div>
-
-<div>
-<label disabled>زیر گروه</label>
-<select>
-    <option></option>
-</select>
-</div>
-
-<div>
-<label>ساخت</label>
-<select>
-    <option>-----</option>
-    <option>ایران</option>
-    <option>آمریکا</option>
-    <option>فرانسه</option>
-</select>
-</div>
-
-<div>
-<label>فنی</label>
-<select>
-    <option>-----</option>
-    <option>آکبند / کارنکرده</option>
-    <option>سالم</option>
-    <option>کاملا سالم</option>
-    <option>نیاز به تعمیر</option>
-</select>
-</div>
-
-<div>
-<label>پرداخت</label>
-<select>
-    <option>-----</option>
-    <option>نقدی</option>
-    <option>اقساط</option>
-    <option>توافقی</option>
-</select>
-</div>
-
-<div>
-<label>استان درج آگهی</label>
-<select>
-    <option>-----</option>
-    <option>تهران</option>
-    <option>مشهد</option>
-    <option>شیراز</option>
-</select>
-</div>
-
-<div>
-<label>آدرس</label>
-<input type="text" disabled />
-</div> */
-}
