@@ -1,37 +1,79 @@
-import React from "react";
-import Link from "next/link";
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 
-import { useS3Upload } from "next-s3-upload";
 import classes from "./Khadamat.module.css";
-import { Select } from "@mui/material";
+
+
+import axios from 'axios';
+
 
 const Khadamat = () => {
-  return (
-    <div className={classes.khadamt}>
-      <div className={classes.head}>
-        <h5>ثبت مشخصات کالا و خدمات</h5>
-        <p>
-          خواهشمنداست،اطلاعات مورد نظر خود را متناسب با گروه انتخابی آگهی با ذکر
-          جزئیات ثبت نمائید .{" "}
-        </p>
-      </div>
 
-      <div className={classes.link}>
-        <Link href="/khadamat">
-          درج آگهی جدید
-          <span>+</span>
-        </Link>
-      </div>
+    const [selectData, setSelectData] = useState([]);
 
-      <div className={classes.container}>
-        <div className={classes.mozo}>
-          <label>
-            موضوع
-            <span>*</span>
-          </label>
+    const [postId, setPostId] = useState();
 
-          <input type="text" placeholder="موضوع آگهی را ثبت نمایید" />
-        </div>
+    const [getCategory, setGetCategory] = useState();
+
+
+    // ### Get Data ###
+    const getApiHandler = async () => {
+
+        // console.log("ali");
+
+        if (selectData.length == 0) {
+
+            try {
+
+                const { data } = await axios.get("http://192.168.0.206:1212/advert/v1/get-good-categorys/");
+                setSelectData(data);
+
+            } catch (error) {
+
+                console.log(error.message)
+
+            }
+            console.log(selectData)
+
+        }
+
+    }
+
+
+    useEffect(() => {
+
+    }, [])
+
+    // ### Post Data ###
+    const OptionChangeHandler = async (e) => {
+
+        if (e.target.value == '0') {
+
+            setPostId("")
+
+        } else {
+            try {
+                setPostId(e.target.value)
+                const category = await axios.get(`http://192.168.0.206:1212/advert/v1/category-childs/${e.target.value}/`)
+
+                console.log(category.data.products)
+
+                setGetCategory(category.data.products)
+
+            } catch (error) {
+
+                // console.log(error.message)
+
+            }
+
+            console.log(postId)
+        }
+
+    }
+
+    return (
+
+        <div className={classes.khadamt}>
 
         <div className={classes.rightcontrol}>
           <div className={classes.text}>
@@ -83,60 +125,182 @@ const Khadamat = () => {
           </div>
         </div>
 
-        <div className={classes.leftcontrol}>
-          <div className={classes.textleft}>
-            <label>
-              برند
-              <span></span>
-            </label>
+            <div className={classes.container}>
 
-            <label>
-              قیمت
-              <span></span>
-            </label>
+                <div className={classes.mozo}>
 
-            <label>
-              وضعیت
-              <span>*</span>
-            </label>
+                    <label>
+                        موضوع
+                        <span>*</span>
+                    </label>
 
-            <label>
-              استان
-              <span></span>
-            </label>
-          </div>
-          <div className={classes.controlleft}>
-            <div className={classes.selectleft}>
-              <div>
-                <select>
-                  <option>-----</option>
-                </select>
-              </div>
-
-              <div>
-                <div className={classes.select30}>
-                  <input type="text" placeholder="قیمت را ثبت نمایید" />
-                  <div className={classes.sel31}>
-                    <select>
-                      <option>توافقی</option>
-                      <option>تومان</option>
-                    </select>
-                  </div>
+                    <input type='text' placeholder='موضوع آگهی را ثبت نمایید' />
                 </div>
-              </div>
 
-              <div>
-                <select>
-                  <option>-----</option>
-                </select>
-              </div>
+                <div className={classes.rightcontrol}>
 
-              <div>
-                <select>
-                  <option>-----</option>
-                </select>
-              </div>
-              <div></div>
+                    <div className={classes.text}>
+
+                        <label>
+                            گروه کالایی
+                            <span>*</span>
+                        </label>
+
+                        <label>
+                            محصول
+                            <span>*</span>
+                        </label>
+
+                        <label>
+                            ساخت
+                            <span></span>
+                        </label>
+
+
+                        <label>
+                            آدرس
+                            <span></span>
+                        </label>
+
+
+                    </div>
+
+                    <div className={classes.control}>
+                        <div className={classes.select1}>
+
+                            <select onClick={getApiHandler} onChange={(e) => OptionChangeHandler(e)} required>
+                                <option> ------ </option>
+
+                                {selectData ? (
+                                    <>
+                                        {selectData.map((item) => (
+                                            <option value={item.id} key={item.id}> {item.name} </option>
+                                        ))}
+                                    </>
+                                ) : ""}
+
+
+                            </select>
+
+                            <select required>
+                                <option value="0">-----</option>
+
+                                {getCategory ? (
+                                    <>
+                                        {getCategory.map((item) => (
+                                            <option key={item.id}> {item.name} </option>
+                                        ))}
+                                    </>
+                                ) : ""}
+
+                            </select>
+
+                            <select>
+                                <option>-----</option>
+                            </select>
+
+                        </div>
+
+                        <div className={classes.select24}>
+                            <div>
+                                <input type="text" />
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+                <div className={classes.leftcontrol}>
+
+                    <div className={classes.textleft} >
+
+
+                        <label>
+                            برند
+                            <span></span>
+                        </label>
+
+                        <label>
+                            قیمت
+                            <span></span>
+                        </label>
+
+                        <label>
+                            وضعیت
+                            <span>*</span>
+                        </label>
+
+                        <label>
+                            استان
+                            <span></span>
+                        </label>
+
+
+                    </div>
+                    <div className={classes.controlleft}>
+                        <div className={classes.selectleft}>
+                            <div>
+                                <select>
+                                    <option>-----</option>
+                                </select>
+                            </div>
+
+
+                            <div>
+                                <div className={classes.select30}>
+                                    <input type="text" placeholder="قیمت را ثبت نمایید" />
+                                    <div className={classes.sel31}>
+                                        <select>
+                                            <option>توافقی</option>
+                                            <option>تومان</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <select required>
+                                    <option>-----</option>
+                                </select>
+                            </div>
+
+
+
+                            <div>
+                                <select>
+                                    <option>-----</option>
+                                </select>
+                            </div>
+                            <div></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div className={classes.textarea} >
+                    <div>
+                        <label>
+                            توضیحات <span>*</span>
+                        </label>
+                    </div>
+                    <div className={classes.textarea2}>
+                        <textarea rows="12" cols="120" placeholder="توضیحات خود را ثبت نمایید"></textarea>
+                    </div>
+                </div>
+
+                <div className={classes.file}>
+                    <label>عکس خود را وارد کنید</label>
+                    <input type="file" />
+                </div>
+                <div className={classes.btn2}>
+                    <button>تصویر فرعی اول </button></div>
+
+                <div className={classes.btn3}><button >تصویر فرعی اول </button></div>
+                <div className={classes.btn4}><button >تصویر فرعی اول </button></div>
+
+
+
             </div>
           </div>
         </div>
