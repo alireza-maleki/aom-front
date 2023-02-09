@@ -9,6 +9,7 @@ import Popup from '../popup/Popup';
 
 import Link from 'next/link';
 
+
 const Header = () => {
 
     const [agahi, setAgahi] = useState(false);
@@ -35,7 +36,7 @@ const Header = () => {
                             </li>
                             <li>
                                 <Link href="/">
-                                <img src='/images/home.png' />
+                                    <img src='/images/home.png' />
                                 </Link>
                             </li>
 
@@ -49,7 +50,11 @@ const Header = () => {
                                     <span><Arrow /></span>
                                 </a>
                                 <ul className={classes.one}>
-                                    <li>خرید خدمات مرتبط صنفی</li>
+
+                                    <Link href="/kharidkhadamat">
+                                        <li>خرید خدمات مرتبط صنفی</li>
+                                    </Link>
+
                                     <li>فروش خدمات مرتبط صنفی</li>
                                     <li>نصب و تعمیرات</li>
                                     <li>طراحی و راه اندازی منو</li>
