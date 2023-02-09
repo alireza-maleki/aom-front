@@ -1,230 +1,338 @@
-import { ClassNames } from "@emotion/react";
-import { collapseClasses } from "@mui/material";
-import React from "react";
-import { FaUserAlt } from "react-icons/fa";
-import { RiUserFill } from "react-icons/ri";
-import { GiRotaryPhone } from "react-icons/gi";
-import { GiVibratingSmartphone } from "react-icons/gi";
-import { BiMap } from "react-icons/bi";
-import { GrMap } from "react-icons/gr";
-import { BiMapPin } from "react-icons/bi";
+import React from 'react';
 
 import classes from "./Estekhdam.module.css";
 
-const estekhdam = () => {
-  return (
-    <div className={classes.estekhdam}>
-      <div
-        className={` h-25  pt-5 d-flex align-items-center justify-content-center flex-column  ${classes.container}`}
-      >
-        <div className={`w-50   ${classes.head}`}>
-          <h5 className="text-center bg-info  p-2  rounded-1">
-            ثبت اطلاعات استخدام نیرو
-          </h5>
-        </div>
-        <div className={`row  w-50 rounded-1 ${classes.body}`}>
-          <div className=" col-md-2 d-flex align-items-center justify-content-center fs-1">
-            <FaUserAlt />
-          </div>
+import { FaUserAlt } from 'react-icons/fa';
+import { BiUser } from 'react-icons/bi';
+import { GiRotaryPhone } from 'react-icons/gi';
+import { BsPhoneVibrate } from 'react-icons/bs';
+import { GrMap } from 'react-icons/gr';
+import { BiMapPin } from 'react-icons/bi';
+import { BiMap } from 'react-icons/bi';
 
-          <div
-            className={`card  w-75 h-75 m-4 flex-column flex-lg-row  ${classes.card}`}
-          >
-            <div className=" w-100 h-75 p-3 col-md-10 d-flex">
-              <div className=" col-md-4 col-sm-6">
-                <table className=" pt-2 w-100">
-                  <tbody>
-                    <tr>
-                      <td className="W-25">
-                        <RiUserFill />
-                      </td>
-                      <td className="w-75"> آقای محمدرضا آزادی</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <table className="w-100">
-                  <tbody>
-                    <tr>
-                      <td className=" w-25">
-                        <GiRotaryPhone />
-                      </td>
-                      <td className="w-75">.....</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <table className="w-100">
-                  <tbody>
-                    <tr>
-                      <td className=" w-25">
-                        <GiVibratingSmartphone />
-                      </td>
-                      <td className="w-75">09121234566</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+const Sabt = () => {
+    return (
+        <div className={classes.sabt}>
 
-              <div className=" col-md-4 col-sm-6">
-                <table className=" pt-2 w-100">
-                  <tbody>
-                    <tr>
-                      <td className="W-25">
-                        <GrMap />
-                      </td>
-                      <td className="w-75"> استان تهران </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <table className="w-100">
-                  <tbody>
-                    <tr>
-                      <td className=" w-25">
-                        <BiMapPin />
-                      </td>
-                      <td className="w-75">شهر تهران </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <table className="w-100">
-                  <tbody>
-                    <tr>
-                      <td className=" w-25">
-                        <BiMap />
-                      </td>
-                      <td className="w-75">تهران پیروزی</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+            <div className={` d-flex align-items-center justify-content-center flex-column ${classes.contanier}`}>
+
+                <div className={`row pt-4 col-lg-6 col-10 ${classes.heading} `}>
+                    <h5 className={` text-center text-white p-2 rounded   ${classes.paragraph} `}>ثبت اطلاعات استخدام نیرو</h5>
+                </div>
+
+                <div className={`row col-lg-6 col-10 rounded h-50 p-3 p-lg-0 bg-white  ${classes.body}`}>
+
+                    <div className='col-md-2 fs-1  d-flex align-items-center justify-content-center'>
+                        <FaUserAlt />
+                    </div>
+
+                    <div className={` col-md-10 w-75 p-3 m-4 border border-dark rounded fs-6 d-flex flex-lg-row flex-column ${classes.card}`}>
+
+                        <div className='col-md-4 col-sm-6 '>
+
+                            <table className='w-100 pt-2'>
+                                <tbody>
+                                    <tr>
+                                        <td className='w-25'>
+                                            <BiUser />
+                                        </td>
+                                        <td className='w-75'>
+                                            آقای ...
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table className='w-100  p-2'>
+                                <tbody>
+                                    <tr>
+                                        <td className='w-25'>
+                                            <GiRotaryPhone />
+                                        </td>
+                                        <td className='w-75'>
+                                            .........
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table className='w-100'>
+                                <tbody>
+                                    <tr>
+                                        <td className='w-25'>
+                                            <BsPhoneVibrate />
+                                        </td>
+                                        <td className='w-75'>
+                                            09145466674
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <div className='col-md-4 col-sm-6 g-5'>
+
+                            <table className='w-100'>
+                                <tbody>
+                                    <tr>
+                                        <td className='w-25'>
+                                            <GrMap />
+                                        </td>
+                                        <td className='w-75'>
+                                            09121234567
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table className='w-100'>
+                                <tbody>
+                                    <tr>
+                                        <td className='w-25'>
+                                            <BiMapPin />
+                                        </td>
+                                        <td className='w-75'>
+                                            09121234567
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table className='w-100'>
+                                <tbody>
+                                    <tr>
+                                        <td className='w-25'>
+                                            <BiMap />
+                                        </td>
+                                        <td className='w-75'>
+                                            09121234567
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
             </div>
-          </div>
-        </div>
-      </div>
-      <div className={`rounded-1 ${classes.middle}`}>
-        <div className=" row">
-          <label
-            for="inputPassword"
-            className={`col-lg-4 col-sm-2 col-form-label ${classes.forml}`}
-          >
-            موضوع آگهی
-            <span>*</span>
-          </label>
-          <div className="col-sm-10">
-            <input
-              type="password"
-              className={`form-control  ${classes.formi}`}
-            ></input>
-          </div>
-        </div>
-        <div className={` form-group row  ${classes.form1}`}>
-          <label className={` control-label col-md-2   ${classes.label1}`}>
-            {" "}
-            گروه خدماتی <span>*</span>{" "}
-          </label>
-          <select className={` w-25  ${classes.select}`}>
-            <option>.....</option>
-            <option></option>
-          </select>
-          <label className={` control-label col-md-2   ${classes.label2}`}>
-            {" "}
-            نوع فعالیت{" "}
-          </label>
-          <select className={` w-25  ${classes.select}`}>
-            <option>.....</option>
-            <option></option>
-          </select>
-        </div>
-        <div className={` form-group row  ${classes.form1}`}>
-          <label className={` control-label col-md-2   ${classes.label1}`}>
-            سابقه فعالیت
-          </label>
-          <select className={` w-25  ${classes.select}`}>
-            <option>.....</option>
-            <option></option>
-          </select>
-          <label className={` control-label col-md-2   ${classes.label2}`}>
-            {" "}
-            فعالیت
-          </label>
-          <select className={` w-25  ${classes.select}`}>
-            <option>.....</option>
-            <option></option>
-          </select>
-        </div>
-        <div className={` form-group row  ${classes.form1}`}>
-          <label className={` control-label col-md-2   ${classes.label1}`}>
-            {" "}
-            حوزه تخصصی{" "}
-          </label>
-          <select className={` w-25  ${classes.select}`}>
-            <option>.....</option>
-            <option></option>
-          </select>
-          <label className={` control-label col-md-2   ${classes.label2}`}>
-            {" "}
-            تخصص <span>*</span>
-          </label>
-          <select className={` w-25  ${classes.select}`}>
-            <option>.....</option>
-            <option></option>
-          </select>
-        </div>
-        <div className={` form-group row  ${classes.form1}`}>
-          <label className={` control-label col-md-2   ${classes.label1}`}>
-            {" "}
-            گارانتی/ضمانت{" "}
-          </label>
-          <select className={` w-25  ${classes.select}`}>
-            <option>.....</option>
-            <option></option>
-          </select>
-          <label className={` control-label col-md-2   ${classes.label2}`}>
-            {" "}
-            تحصیلات{" "}
-          </label>
-          <select className={` w-25  ${classes.select}`}>
-            <option>.....</option>
-            <option></option>
-          </select>
-        </div>
-        <div className={` form-group row  ${classes.form1}`}>
-          <label className={` control-label col-md-2   ${classes.label1}`}>
-            {" "}
-            استان
-          </label>
-          <select className={` w-25  ${classes.select}`}>
-            <option>.....</option>
-            <option></option>
-          </select>
-          <label className={` control-label col-md-2   ${classes.label2}`}>
-            {" "}
-            نوع قرارداد
-          </label>
-          <select className={` w-25  ${classes.select}`}>
-            <option>.....</option>
-            <option></option>
-          </select>
-        </div>
 
-        <div className={`  ${classes.textarea}`}>
-          <div className={`w-100 control-label col-md-2 d-flex  flex-row align-items-center justify-content-between ${classes.label3}`}>
-            <label className={`  ${classes.label4}`}>
-              توضیحات
-            </label>
-            <textarea className="w-100 rounded-1"
-              rows="4"
-              cols="60"
-              placeholder="توضیحات خود را ثبت نمایید"
-            ></textarea>
-          </div>
-        </div>
 
-        <div className={classes.action}>
-          <button>ذخیره اطلاعات</button>
-        </div>
-      </div>
-    </div>
-  );
-};
+            <div className={` contanier my-3 d-flex align-items-center justify-content-center ${classes.form}`}>
 
-export default estekhdam;
+                <div className='row p-3 col-lg-6 col-10 bg-white rounded'>
+
+                    <form>
+
+                        <div className={` row col-lg-12 text-end text-lg-center ${classes.s}`}>
+                            <div className={`form-group d-flex flex-column flex-lg-row  ${classes.head}`}>
+
+                                {/* <div className='d-flex align-items-center col-lg-2 col-12'>
+                                </div> */}
+
+                                <div className='col-lg-12 col-12'>
+                                    <label className='fw-bold' for="موضوع"> موضوع آگهی</label>
+                                    <span className='text-danger fw-bold fs-3 px-2'>*</span>
+                                    <input type="text" className={classes.input} />
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div className='row my-3'>
+
+                            <div className='form-group col-lg-6 d-flex flex-column flex-lg-row align-items-center justify-content-center'>
+
+                                <div className='d-flex align-items-center col-lg-3 col-12'>
+                                    <label for="موضوع" className={classes.label}>جنسیت</label>
+                                    <span className='text-danger fs-3 fw-bold'>*</span>
+                                </div>
+
+                                <div className='col-lg-9 col-12'>
+                                    <select className={classes.select}>
+                                        <option>آقا</option>
+                                        <option>خانم</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <div className='form-group gy-3 gy-lg-0 col-lg-6 d-flex flex-column flex-lg-row align-items-center justify-content-center'>
+
+                                <div className='d-flex align-items-center col-lg-3 col-12'>
+                                    <label for="موضوع" className={classes.label}>نوع فعالیت</label>
+                                    <span className='text-danger fs-3 fw-bold'>*</span>
+                                </div>
+
+                                <div className='col-lg-9 col-12'>
+                                    <select className={classes.select}>
+                                        <option>...</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div className='row my-3'>
+
+                            <div className='form-group col-lg-6 d-flex flex-column flex-lg-row align-items-center justify-content-center'>
+
+                                <div className='d-flex align-items-center col-lg-3 col-12'>
+                                    <label for="موضوع" className={classes.label}>سابقه فعالیت</label>
+                                    <span className='text-danger fs-3 fw-bold'>*</span>
+                                </div>
+
+                                <div className='col-lg-9 col-12'>
+                                    <select className={classes.select}>
+                                        <option>...</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <div className='form-group gy-3 gy-lg-0 col-lg-6 d-flex flex-column flex-lg-row align-items-center justify-content-center'>
+
+                                <div className='d-flex align-items-center col-lg-3 col-12'>
+                                    <label for="موضوع" className={classes.label}> حوزه فعالیت </label>
+                                    <span className='text-danger fs-3 fw-bold'>*</span>
+                                </div>
+
+                                <div className='col-lg-9 col-12'>
+                                    <select className={classes.select}>
+                                        <option>...</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div className='row my-3'>
+
+                            <div className='form-group col-lg-6 d-flex flex-column flex-lg-row align-items-center justify-content-center'>
+
+                                <div className='d-flex align-items-center col-lg-3 col-12'>
+                                    <label for="موضوع" className={classes.label}>حوزه تخصصی</label>
+                                    <span className='text-danger fs-3 fw-bold'>*</span>
+                                </div>
+
+                                <div className='col-lg-9 col-12'>
+                                    <select className={classes.select}>
+                                        <option>...</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <div className='form-group gy-3 gy-lg-0 col-lg-6 d-flex flex-column flex-lg-row align-items-center justify-content-center'>
+
+                                <div className='d-flex align-items-center col-lg-3 col-12'>
+                                    <label for="موضوع" className={classes.label}>تخصص</label>
+                                    <span className='text-danger fs-3 fw-bold'>*</span>
+                                </div>
+
+                                <div className='col-lg-9 col-12'>
+                                    <select className={classes.select}>
+                                        <option>...</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div className='row my-3'>
+
+                            <div className='form-group col-lg-6 d-flex flex-column flex-lg-row align-items-center justify-content-center'>
+
+                                <div className='d-flex align-items-center col-lg-3 col-12'>
+                                    <label for="موضوع" className={classes.label}>استان / محل زندگی</label>
+                                    <span className='text-danger fs-3 fw-bold'>*</span>
+                                </div>
+
+                                <div className='col-lg-9 col-12'>
+                                    <select className={classes.select}>
+                                        <option>...</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <div className='form-group gy-3 gy-lg-0 col-lg-6 d-flex flex-column flex-lg-row align-items-center justify-content-center'>
+
+                                <div className='d-flex align-items-center col-lg-3 col-12'>
+                                    <label for="موضوع" className={classes.label} >تحصیلات</label>
+                                    <span className='text-danger fs-3 fw-bold'>*</span>
+                                </div>
+
+                                <div className='col-lg-9 col-12'>
+                                    <select className={classes.select}>
+                                        <option>...</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                  
+
+                        <div className='row my-3'>
+
+                            <div className='form-group col-lg-6 d-flex flex-column flex-lg-row align-items-center justify-content-center'>
+
+                                <div className='d-flex align-items-center col-lg-3 col-12'>
+                                    <label for="موضوع" className={classes.label}>نوع قرارداد</label>
+                                    <span className='text-danger fs-3 fw-bold'>*</span>
+                                </div>
+
+                                <div className='col-lg-9 col-12'>
+                                    <select className={classes.select}>
+                                        <option>...</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                           
+
+                        </div>
+
+                        <div className='row my-3'>
+
+                            <div className='col-lg-1 '>
+                                <label for="توضیحات" className='fw-bold' >توضیحات</label>
+                            </div>
+                            <div className=' col-lg-11'>
+                                <textarea className={` form-control  ${classes.area}`}></textarea>
+                            </div>
+
+                        </div>
+
+                        
+                        
+                        <div className='row'>
+                            <hr />
+                        </div>
+
+                        <div className='row d-flex align-items-center justify-content-center mb-3'>
+                            <button className='btn btn-success fw-bold text-dark col-lg-8 ' >ذخیره اطلاعات</button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+            </div >
+
+        </div >
+    )
+}
+
+export default Sabt

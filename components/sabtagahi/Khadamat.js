@@ -303,49 +303,13 @@ const Khadamat = () => {
 
             </div>
           </div>
-        </div>
-        <div className={classes.textarea}>
-          <div>
-            <label>
-              توضیحات <span>*</span>
-            </label>
-          </div>
-          <div className={classes.textarea2}>
-            <textarea
-              rows="12"
-              cols="120"
-              placeholder="توضیحات خود را ثبت نمایید"
-            >
-              {" "}
-            </textarea>
-          </div>
-        </div>
-
-        <div className={` ${classes.file}`}>
-          <div className={`p-3 ${classes.file1}`}>
-            <input className="form-control" type="file" id="formFile" />
-          </div>
-          <div className={`p-3 ${classes.file2}`}>
-            <input className="form-control" type="file" id="formFile" />
-          </div>
-          <div className={`p-3 ${classes.file3}`}>
-            <input className="form-control" type="file" id="formFile" />
-          </div>
-          <div className={`p-3 ${classes.file4}`}>
-            <input className="form-control" type="file" id="formFile" />
-          </div>
-          <div className={classes.action}>
-            <button>ذخیره اطلاعات</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+        
+    );
 };
 
 export default Khadamat;
 
-{
+
   /* <div>
 <label>گروه کالایی</label>
 <select>
@@ -410,4 +374,3 @@ export default Khadamat;
 <label>آدرس</label>
 <input type="text" disabled />
 </div> */
-}
