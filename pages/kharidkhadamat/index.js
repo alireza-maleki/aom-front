@@ -1,12 +1,12 @@
 import { Fragment } from "react";
 
-import KharidKhadamt from "../../components/kharid-khadamat/kharidKhadamt";
+import KharidKhadamat from "../../components/kharid-khadamat/KharidKhadamat";
 
 const index = () => {
   return (
     <Fragment>
 
-        <KharidKhadamt />
+        <KharidKhadamat />
 
     </Fragment>
   )
