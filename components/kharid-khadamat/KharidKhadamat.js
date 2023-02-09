@@ -1,9 +1,9 @@
 
-import classes from './KharidKhadamt.module.css';
+import classes from './KharidKhadamat.module.css';
 
 
 
-const KharidKhadamt = () => {
+const KharidKhadamat = () => {
     return (
         <div className={classes.kharid}>
 
@@ -15,7 +15,7 @@ const KharidKhadamt = () => {
 
                 <div className='row mb-1'>
 
-                    <label className={` col-md-1 col-sm-1 col-xs-2 ${classes.label} `}>یشسیسیسی</label>
+                    <label className={` col-md-1 col-sm-1 col-xs-2 ${classes.label} `}>استان</label>
                     <div className={` col-md-2 col-sm-3 col-xs-4 `}>
                         <select className={classes.selection}>
                             <option value='1'>-----</option>
@@ -26,6 +26,7 @@ const KharidKhadamt = () => {
                     <div className={` col-md-2 col-sm-3 col-xs-4  `}>
                         <select className={classes.selection}>
                             <option value='1'>-----</option>
+                                                        
                         </select>
                     </div>
 
@@ -181,4 +182,4 @@ const KharidKhadamt = () => {
     )
 }
 
-export default KharidKhadamt
+export default KharidKhadamat;
