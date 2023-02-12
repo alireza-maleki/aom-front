@@ -20,6 +20,7 @@ const Gifts = (props) => {
                     .map((item) => (
                         <ul key={item.id} className={classes.gift}>
                             <GiftsItem
+                                id={item.id}
                                 title={item.title}
                                 desc={item.description}
                                 image={item.image}

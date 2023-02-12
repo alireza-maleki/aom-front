@@ -1,17 +1,21 @@
-import React from 'react';
+import Link from "next/link";
 
 import classes from "./ToolsItem.module.css";
 
 const ToolsItem = (props) => {
 
-    const { key, title, image, desc, price, category } = props;
+    const { key, title, image, desc, price, category, id } = props;
+
+    const linkAddress = `/${id}`
 
     return (
         <li className={classes.giftitem}>
 
-            <div className={classes.title}>
-                <p>{title}</p>
-            </div>
+            <Link href={linkAddress}>
+                <div className={classes.title}>
+                    <p>{title}</p>
+                </div>
+            </Link>
 
             <div className={classes.summary}>
                 <div className={classes.image}>

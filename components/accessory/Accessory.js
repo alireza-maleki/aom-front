@@ -18,6 +18,7 @@ const Accessory = (props) => {
                     .map((item) => (
                         <ul key={item.id} className={classes.gift}>
                             <AccessoryItem
+                                id={item.id}
                                 title={item.title}
                                 desc={item.description}
                                 image={item.image}

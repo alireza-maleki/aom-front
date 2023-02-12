@@ -10,7 +10,7 @@ export async function loadProducts() {
 
 export async function loadData() {
   // Call an external API endpoint to get posts
-  const res = await fetch('http://192.168.0.206:1212/v1/homedata/')
+  const res = await fetch('http://94.139.163.188:1313/v1/homedata/')
   const data = await res.json()
 
   return data

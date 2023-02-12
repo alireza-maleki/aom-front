@@ -18,6 +18,7 @@ const Tools = (props) => {
                     .map((item) => (
                         <ul key={item.id} className={classes.gift}>
                             <ToolsItem
+                                id={item.id}
                                 title={item.title}
                                 desc={item.description}
                                 image={item.image}
