@@ -37,7 +37,7 @@ export default function AutomaticScrollButton(props) {
 
   const loadMorePokemon1 = () => {
 
-    axios.get(`http://192.168.0.206:1212/v1/scrol-data/${offset1}/7`).then(({ data }) => {
+    axios.get(`http://192.168.0.112:1313/v1/scrol-data/${offset1}/7`).then(({ data }) => {
 
       const newPokemon1 = [];
       data.forEach((item) => newPokemon1.push(item));
@@ -71,7 +71,7 @@ export default function AutomaticScrollButton(props) {
 
   const loadMorePokemon2 = () => {
 
-    axios.get(`http://192.168.0.206:1212/v1/scrol-data/${offset2}/4`).then(({ data }) => {
+    axios.get(`http://192.168.0.112:1313/v1/scrol-data/${offset2}/4`).then(({ data }) => {
 
       const newPokemon2 = [];
       data.forEach((item) => newPokemon2.push(item));
@@ -105,7 +105,7 @@ export default function AutomaticScrollButton(props) {
 
   const loadMorePokemon3 = () => {
 
-    axios.get(`http://192.168.0.206:1212/v1/scrol-data/${offset3}/5`).then(({ data }) => {
+    axios.get(`http://192.168.0.112:1313/v1/scrol-data/${offset3}/5`).then(({ data }) => {
 
       const newPokemon3 = [];
       data.forEach((item) => newPokemon3.push(item));
@@ -138,7 +138,7 @@ export default function AutomaticScrollButton(props) {
 
   const loadMorePokemon4 = () => {
 
-    axios.get(`http://192.168.0.206:1212/v1/scrol-data/${offset4}/4`).then(({ data }) => {
+    axios.get(`http://192.168.0.112:1313/v1/scrol-data/${offset4}/4`).then(({ data }) => {
 
       const newPokemon4 = [];
       data.forEach((item) => newPokemon4.push(item));
@@ -172,7 +172,7 @@ export default function AutomaticScrollButton(props) {
 
   const loadMorePokemon5 = () => {
 
-    axios.get(`http://192.168.0.206:1212/v1/scrol-data/${offset5}/5`).then(({ data }) => {
+    axios.get(`http://192.168.0.112:1313/v1/scrol-data/${offset5}/5`).then(({ data }) => {
 
       const newPokemon5 = [];
       data.forEach((item) => newPokemon5.push(item));
@@ -200,8 +200,6 @@ export default function AutomaticScrollButton(props) {
 
 
 
-
-
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -225,7 +223,7 @@ export default function AutomaticScrollButton(props) {
 
 
   const giftHandler = () => {
-    console.log(categorys)
+    // console.log(categorys)
 
     setEnergy(false);
     setAccessory(false);
@@ -240,7 +238,7 @@ export default function AutomaticScrollButton(props) {
   }
 
   const toolsHandler = () => {
-    console.log(categorys)
+    // console.log(categorys)
 
     setGifts(false);
     setEnergy(false);
@@ -257,7 +255,7 @@ export default function AutomaticScrollButton(props) {
   }
 
   const energyHandler = () => {
-    console.log(category)
+    // console.log(category)
 
     setGifts(false);
     setTools(false);
@@ -274,7 +272,7 @@ export default function AutomaticScrollButton(props) {
   }
 
   const accessorysHandler = () => {
-    console.log(category)
+    // console.log(category)
 
     setGifts(false);
     setTools(false);
@@ -292,7 +290,7 @@ export default function AutomaticScrollButton(props) {
   }
 
   const cunsumerHandler = () => {
-    console.log(category)
+    // console.log(category)
 
     setGifts(false);
     setTools(false);
