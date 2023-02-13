@@ -1,6 +1,4 @@
-import React, { Fragment } from 'react';
-import { Provider } from 'react-redux';
-import store from '../components/redux/store';
+import React, { useState, useEffect, Fragment } from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -33,17 +31,65 @@ const index = (props) => {
 
 export async function getStaticProps(context) {
 
-  // const products = await loadProducts();
-
+  
   const data = await loadData();
 
   return {
     props: {
-      // products,
+      
       data
-    }, // will be passed to the page component as props
+    },
     revalidate: 60,
   }
 }
+
+
+
+// export async function getServerSideProps() {
+
+//   let offset = 1;
+//   const [pokemon, setPokemon] = useState([]);
+
+
+//   const loadMorePokemon1 = () => {
+
+//     axios.get(`http://192.168.0.206:1212/v1/scrol-data/${offset1}/7`).then(({ data }) => {
+
+//       const newPokemon1 = [];
+//       data.forEach((item) => newPokemon1.push(item));
+//       setPokemon1(newPokemon1);
+
+//     });
+
+//     offset1 += 5;
+
+//   };
+
+//   // #####  
+//   const handelScroll1 = (e) => {
+
+//     if (
+//       window.innerHeight + e.target.documentElement.scrollTop + 1 >=
+//       e.target.documentElement.scrollHeight
+//     ) {
+//       loadMorePokemon1(window.innerHeight);
+//     }
+
+//     console.log()
+
+//   }
+
+//   useEffect(() => {
+
+//     loadMorePokemon();
+
+//     window.addEventListener('scroll', handelScroll);
+
+//   }, [])
+
+//   return {
+//     props: {},
+//   }
+// }
 
 export default index;

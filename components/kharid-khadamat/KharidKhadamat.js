@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 
+import PostList from '../allpost/PostList';
+import NavbarFixed from '../navbar fixed/NavbarFixed';
 import classes from './KharidKhadamat.module.css';
 
 import ListData from "../listdata/ListData";
@@ -65,6 +67,7 @@ const KharidKhadamat = ({ allData }) => {
     }, []);
 
 
+const KharidKhadamat = ({ allPost }) => {
 
     return (
         <div className={` ${classes.kharid} `}>
@@ -162,12 +165,6 @@ const KharidKhadamat = ({ allData }) => {
                                             </div>
 
                                         </div>
-
-                                    </div>
-
-                                    <div className={` col-6 ${classes.action}`}>
-                                        <button type='submit' className='btn'>فیلتر</button>
-                                    </div>
 
                                 </div>
                             </div>

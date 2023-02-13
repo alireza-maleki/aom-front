@@ -2,18 +2,22 @@ import { Fragment } from "react";
 
 import KharidKhadamat from "../../components/kharid-khadamat/KharidKhadamat";
 
+
 const Kharid = ({ allData }) => {
 
   console.log(allData)
 
+
   return (
     <Fragment>
 
-      <KharidKhadamat />
+      <KharidKhadamat allPost={allPost} />
+
 
     </Fragment>
   )
 }
+
 
 export default Kharid;
 
@@ -31,3 +35,4 @@ export async function getStaticProps() {
   }
 
 }
+
