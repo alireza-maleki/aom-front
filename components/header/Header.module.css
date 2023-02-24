@@ -118,7 +118,7 @@
     border: 1px solid #fff;
     background-color: #fff;
     color: blue;
-    font-size: 18px;
+    /* font-size: 18px; */
     border-radius: 5px;
     padding: 4px 8px;
     cursor: pointer;
@@ -132,8 +132,10 @@
 }
 
 .rigth .login a {
+    font-weight: bold;
     text-decoration: none;
     color: blue;
+    font-size: 13px;
 }
 
 .rigth .login:hover {

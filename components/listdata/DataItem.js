@@ -1,3 +1,4 @@
+import React from 'react';
 import Link from 'next/link';
 
 import classes from "./dataItem.module.css"
@@ -24,13 +25,14 @@ const DataItem = (props) => {
 
 
                 <div>
-                    <img src={image} />
+                    {/* <img src={image} /> */}
+                    <p>{description}</p>
                 </div>
 
                 <div>
                     <p>{description}</p>
                 </div>
-                
+
             </div>
 
 
@@ -41,4 +43,4 @@ const DataItem = (props) => {
 
 }
 
-export default DataItem;
+export default React.memo(DataItem);

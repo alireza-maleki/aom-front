@@ -13,17 +13,17 @@ import Footer from '../components/footer/Footer';
 import { loadData, loadProducts } from '../components/getalldata/GetAllData';
 import NavbarFixed from '../components/navbar fixed/NavbarFixed';
 
-
+import { RegisterContextProvider } from '../components/contexts/RegisterContext';
 
 const index = (props) => {
 
   return (
-    <>
+    <RegisterContextProvider>
       <Search />
       <TopScroll />
       <HomePage data={props.data} />
       <NavbarFixed />
-    </>
+    </RegisterContextProvider>
   )
 }
 
@@ -31,12 +31,12 @@ const index = (props) => {
 
 export async function getStaticProps(context) {
 
-  
+
   const data = await loadData();
 
   return {
     props: {
-      
+
       data
     },
     revalidate: 60,

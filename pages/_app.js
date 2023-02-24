@@ -1,13 +1,19 @@
 import "../styles/globals.css";
+import Layout from "../components/header/Layout";
 
-import Layout from "../components/header/Layout"
+import { RegisterContextProvider } from "../components/contexts/RegisterContext";
+
 
 function MyApp({ Component, pageProps }) {
   return (
 
+
     <Layout>
-      <Component {...pageProps} />
+      <RegisterContextProvider>
+        <Component {...pageProps} />
+      </RegisterContextProvider>
     </Layout>
+
 
   );
 }

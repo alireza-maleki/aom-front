@@ -39,7 +39,8 @@ export default function AutomaticScrollButton(props) {
 
 
     axios.get(`http://94.139.163.188:1313/v1/scrol-data/${offset1}/7`).then(({ data }) => {
-const newPokemon1 = [];
+      
+      const newPokemon1 = [];
       data.forEach((item) => newPokemon1.push(item));
       setPokemon1(newPokemon1);
 
@@ -73,7 +74,7 @@ const newPokemon1 = [];
 
 
     axios.get(`http://94.139.163.188:1313/v1/scrol-data/${offset2}/4`).then(({ data }) => {
-    
+
 
       const newPokemon2 = [];
       data.forEach((item) => newPokemon2.push(item));

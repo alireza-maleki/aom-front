@@ -1,65 +1,60 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
-
-import PostList from '../allpost/PostList';
-import NavbarFixed from '../navbar fixed/NavbarFixed';
 import classes from './KharidKhadamat.module.css';
 
 import ListData from "../listdata/ListData";
 
-import PaginationPage from '../paginate/Pagination';
 
-const KharidKhadamat = ({ allData }) => {
+const KharidKhadamat = () => {
 
-    const [currentPage, setCurrentPage] = useState(1);
-
-    
-    const pageSize = 10;
-    
-    const handelPageChange = (page) => {
-        setCurrentPage(page);
-    }
-    
-    
-    // ### Scroll
-    let offset = 1;
     const [scrollData, setScrollData] = useState([]);
+    const [updateData, setUpdateData] = useState([]);
+
+    // ### Save Ostan Category
+    const [getOstan, setGetOstan] = useState();
+
+    // === Ostan ID ===
+    const [ostanId, setOstanId] = useState();
+
+    // ### Save Beand Category
+    const [getBrand, setGetBrand] = useState();
+
+    // === Brand ID ===
+    const [brandId, setBrandId] = useState();
+
+    // ### Save Made By Contry
+    const [getMadeBy, setGetMadeBy] = useState();
+
+    // === Made By ID ===
+    const [madeById, setMadeById] = useState();
+
+    // ### Save Category 
+    const [getCategory, setGetCategory] = useState();
+
+    // ### Save Category Items 
+    const [categoryItems, setCategoryItems] = useState();
+
+    // === Category ID ===
+    const [categoryId, setCategoryId] = useState();
+
+    // === Product ID ===   
+    const [productId, setProductId] = useState();
+
+    // ### Save Status Change 
+    const [statusChange, setStatusChange] = useState();
+
+    // ### Save Input Text
+    const [inputText, setInputText] = useState();
+
+    // ### Set Error For Search Filed ###
+    const [error, setError] = useState(false);
 
 
-    const loadMorePokemon = () => {
 
-        axios.get(`http://192.168.0.112:1313/search/v1/goods-search/${offset}/`).then(({ data }) => {
-
-            const newData = [];
-            data.forEach((item) => newData.push(item));
-            setScrollData(newData);
-
-        });
-
-        offset += 1;
-
-    };
-
-
-    // ### Scroll Control
-    const handelScroll = (e) => {
-
-        if (
-            window.innerHeight + e.target.documentElement.scrollTop + 1 >=
-            e.target.documentElement.scrollHeight
-        ) {
-            loadMorePokemon(window.innerHeight);
-        }
-
-        console.log()
-
-    }
-
-
-    // ### Window Scroll ###
+    // ### Mount Component
     useEffect(() => {
-        
+
         loadMorePokemon();
 
         window.addEventListener('scroll', handelScroll)
@@ -67,7 +62,222 @@ const KharidKhadamat = ({ allData }) => {
     }, []);
 
 
-const KharidKhadamat = ({ allPost }) => {
+    let offset = 1;
+    // ###
+    const loadMorePokemon = useCallback(() => {
+
+        let newData = [];
+        axios.get(`http://94.139.163.188:1313/search/v1/goods-search/${offset}/`).then(({ data }) => {
+
+            // console.log(newData);
+
+            // if (newData) {
+            data.forEach((item) => newData.push(item));
+            setScrollData(newData);
+            // }
+        });
+
+        offset += 1;
+
+    }, [scrollData]);
+
+
+    console.log(scrollData);
+
+    // ###
+    const handelScroll = (e) => {
+
+        if (
+            window.innerHeight + e.target.documentElement.scrollTop + 1 >=
+            e.target.documentElement.scrollHeight
+        ) {
+            loadMorePokemon(window.scrollY);
+        }
+
+        console.log()
+
+    }
+
+
+
+    // ### Ostan Select Handler ###
+    const ostanHandler = async (e) => {
+
+        if (!getOstan) {
+            const { data } = await axios.get("http://94.139.163.188:1313/advert/v1/citys/");
+            setGetOstan(data);
+            console.log(data)
+        }
+
+    }
+
+    // === Ostan ID Handler ===
+    const ostanChangeHandler = (e) => {
+        setOstanId(e.target.value);
+    }
+
+    // ### Brand Select Handler ###
+    const brandHandler = async () => {
+
+        if (!getBrand) {
+            const { data } = await axios.get("http://94.139.163.188:1313/advert/v1/brands/");
+            setGetBrand(data);
+            console.log(data);
+        }
+
+    }
+
+    // === Brand ID Handler ===
+    const brnadChangeHandler = (e) => {
+        setBrandId(e.target.value);
+    }
+
+    // ### Made By Select Handler ###
+    const madeByHandler = async (e) => {
+
+        if (!getMadeBy) {
+            const { data } = await axios.get("http://94.139.163.188:1313/advert/v1/countrys-made-by/");
+            setGetMadeBy(data);
+            console.log(data)
+        }
+
+    }
+
+    // === Made By Id ===
+    const madeByChangeHandler = (e) => {
+        setMadeById(e.target.value)
+    }
+
+    // ### Category Select Handler ###
+    const categoryHandler = async (e) => {
+
+        if (!getCategory) {
+            const { data } = await axios.get("http://94.139.163.188:1313/advert/v1/get-good-categorys/");
+            setGetCategory(data);
+            console.log(data)
+        }
+
+    }
+
+    // ### Category Change Handler 
+    const categoryChangeHandler = async (e) => {
+
+        setCategoryId(e.target.value);
+
+        // if (!categoryItems) {
+
+            try {
+                const category = await axios.get(`http://94.139.163.188:1313/advert/v1/category-childs/${e.target.value}/`)
+                
+                console.log(category.data.products);
+                
+                setCategoryItems(category.data.products);
+                
+            } catch (error) {
+                
+                // console.log(error.message)
+                
+            }
+            
+        // }
+
+    }
+
+    // === Product ID ===
+    const productChangeHandler = (e) => {
+        setProductId(e.target.value);
+    }
+
+
+    // ### Status Change Handler
+    const statusChangeHandler = (e) => {
+        console.log(e.target.value)
+    }
+
+
+    // Input Change Handler 
+    const inputChangeHandler = (e) => {
+        console.log(e.target.value);
+        setInputText(e.target.value);
+    }
+
+    let detailForFilterData = {
+        ostan: ostanId,
+        brand: brandId,
+        madeBy: madeById,
+        category: categoryId,
+        status: statusChange,
+        categoryItems: productId,
+        search: inputText
+    }
+
+    const submitFormHandler = (e) => {
+        e.preventDefault();
+
+        // setScrollData([]);
+
+        if (
+            !ostanId &&
+            !brandId &&
+            !madeById &&
+            !categoryId &&
+            !statusChange &&
+            !productId &&
+            !inputText
+        ) {
+            alert("لطفا تمام فیلد ها را پر کنید");
+            setError(true);
+        } else if (
+            ostanId ||
+            brandId ||
+            madeById ||
+            categoryId ||
+            statusChange ||
+            productId ||
+            inputText
+        ) {
+            let newOffset = 4;
+
+            axios.get(`http://94.139.163.188:1313/search/v1/goods-search/${newOffset}/`, {
+
+                params: {
+                    detailForFilterData
+                }
+            })
+                .then((response) => {
+                    console.log(response);
+                    if (response.data.length > 0) {
+                        setScrollData(response.data)
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+
+            setGetOstan("");
+            setGetBrand("");
+            setGetMadeBy("");
+            setGetCategory("");
+            setStatusChange("")
+            setCategoryItems("");
+            setInputText("");
+            setError(false);
+
+        }
+
+        console.log(error)
+
+        console.log(ostanId)
+        console.log(brandId)
+        console.log(madeById)
+        console.log(categoryId)
+        console.log(statusChange)
+        console.log(productId)
+
+
+    }
+
+
 
     return (
         <div className={` ${classes.kharid} `}>
@@ -77,160 +287,140 @@ const KharidKhadamat = ({ allPost }) => {
                 <div className="row">
 
                     <div className="col-3 ">
-                        {/* <div className={` pt-5 container`}>
-
-                            <div className='container p-3  bg-secondary border rounded'>
-
-                                <div className='row mb-3'>
-
-                                    <label className={` col-md-1 col-sm-1 col-xs-2 ${classes.label} `}>استان</label>
-                                    <div className={` col-md-2 col-sm-3 col-xs-4 `}>
-                                        <select className={classes.selection}>
-                                            <option value='1'>-----</option>
-                                        </select>
-                                    </div>
-
-                                    <label className={` col-md-1 col-sm-1 col-xs-2 ${classes.label} `}>گروه</label>
-                                    <div className={` col-md-2 col-sm-3 col-xs-4  `}>
-                                        <select className={classes.selection}>
-                                            <option value='1'>-----</option>
-
-                                        </select>
-                                    </div>
-
-                                    <label className={` col-md-1 col-sm-1 col-xs-2 ${classes.label} `}>سابقه</label>
-                                    <div className={` col-md-2 col-sm-3 col-xs-4 `}>
-                                        <select className={classes.selection}>
-                                            <option value='1'>-----</option>
-                                        </select>
-                                    </div>
-
-                                    <label className={` col-md-1 col-sm-1 col-xs-2 ${classes.label} `}>فعالیت</label>
-                                    <div className={` col-md-2 col-sm-3 col-xs-4 `}>
-                                        <select className={classes.selection}>
-                                            <option value='1'>-----</option>
-                                        </select>
-                                    </div>
-
-                                </div>
-
-                                <div className='row'>
-
-                                    <label className={` col-md-1 col-sm-1 col-xs-2 ${classes.label} `}>شهر</label>
-                                    <div className={` col-md-2 col-sm-3 col-xs-4  `}>
-                                        <select className={classes.selection}>
-                                            <option value='1'>-----</option>
-                                        </select>
-                                    </div>
-
-                                    <label className={` col-md-1 col-sm-1 col-xs-2 ${classes.label} `}>حوزه</label>
-                                    <div className={` col-md-2 col-sm-3 col-xs-4 `}>
-                                        <select className={classes.selection}>
-                                            <option value='1'>-----</option>
-                                        </select>
-                                    </div>
-
-                                    <label className={` col-md-1 col-sm-1 col-xs-2 ${classes.label} `}>تخصص</label>
-                                    <div className={` col-md-2 col-sm-3 col-xs-4 `}>
-                                        <select className={classes.selection}>
-                                            <option value='1'>-----</option>
-                                        </select>
-                                    </div>
-
-                                    <label className={` col-md-1 col-sm-1 col-xs-2 ${classes.label} `}>گارانتی</label>
-                                    <div className={` col-md-2 col-sm-3 col-xs-4 `}>
-                                        <select className={classes.selection}>
-                                            <option value='1'>-----</option>
-                                        </select>
-                                    </div>
-
-                                </div>
-
-
-                            </div>
-
-                            <div className='contanier text-center my-3'>
-                                <div className='row'>
-
-                                    <div className='col-6'>
-
-                                        <div className='row'>
-
-                                            <div className='col-1'>
-                                                <label className='form-label'>جستجو</label>
-                                            </div>
-
-                                            <div className='col-11'>
-                                                <input type='text' className={classes.iuput} id='kharid_khadamt' />
-                                            </div>
-
-                                        </div>
-
-                                </div>
-                            </div>
-
-                        </div> */}
 
                         <div className={`row my-5 rounded shadow ${classes['form-control']} `}>
 
 
                             <div className="p-4">
 
-                                <div className="my-4">
+                                <div className="my-2">
                                     <lable>استان</lable>
                                     <div>
-                                        <select>
+                                        <select required onChange={(e) => ostanChangeHandler(e)} onClick={(e) => ostanHandler(e)}>
                                             <option value="0">-----</option>
+
+                                            {
+                                                getOstan ? (
+                                                    <>
+                                                        {
+                                                            getOstan.map((item) => (
+                                                                <option key={item.id} value={item.id}>{item.name_city}</option>
+                                                            ))
+                                                        }
+                                                    </>
+                                                ) : (
+                                                    ""
+                                                )
+                                            }
+
                                         </select>
                                     </div>
                                 </div>
 
 
-                                <div className="my-4">
+                                <div className="my-2">
                                     <lable>برند</lable>
                                     <div>
-                                        <select>
+                                        <select required onChange={(e) => brnadChangeHandler(e)} onClick={brandHandler}>
                                             <option value="0">-----</option>
+
+                                            {
+                                                getBrand ? (
+                                                    <>
+                                                        {getBrand.map((item) => (
+                                                            <option key={item.id} value={item.id}>{item.name}</option>
+                                                        ))}
+                                                    </>
+                                                ) : (
+                                                    ""
+                                                )
+                                            }
                                         </select>
                                     </div>
                                 </div>
 
 
-                                <div className="my-4">
+                                <div className="my-2">
                                     <lable>ساخت</lable>
                                     <div>
-                                        <select>
+                                        <select required onChange={(e) => madeByChangeHandler(e)} onClick={madeByHandler}>
                                             <option value="0">-----</option>
+
+                                            {
+                                                getMadeBy ? (
+                                                    <>
+                                                        {
+                                                            getMadeBy.map((item) => (
+                                                                <option key={item.id} value={item.id}>{item.name}</option>
+                                                            ))
+                                                        }
+                                                    </>
+                                                ) : (
+                                                    ""
+                                                )
+                                            }
                                         </select>
                                     </div>
                                 </div>
 
 
-                                <div className="my-4">
+                                <div className="my-2">
                                     <lable>گروه</lable>
                                     <div>
-                                        <select>
+                                        <select required onClick={categoryHandler} onChange={categoryChangeHandler}>
                                             <option value="0">-----</option>
+
+                                            {
+                                                getCategory ? (
+                                                    <>
+                                                        {
+                                                            getCategory.map((item) => (
+                                                                <option key={item.id} value={item.id}>{item.name}</option>
+                                                            ))
+                                                        }
+                                                    </>
+                                                ) : (
+                                                    ""
+                                                )
+                                            }
+
                                         </select>
                                     </div>
                                 </div>
 
 
-                                <div className="my-4">
+                                <div className="my-2">
                                     <lable>وضعیت</lable>
                                     <div>
-                                        <select>
+                                        <select required onChange={(e) => statusChangeHandler(e)}>
                                             <option value="0">-----</option>
+                                            <option value="نو">نو</option>
+                                            <option value="کارکرده">کارکرده</option>
                                         </select>
                                     </div>
                                 </div>
 
 
-                                <div className="my-4">
+                                <div className="my-2">
                                     <lable>محصول</lable>
                                     <div>
-                                        <select>
+                                        <select required onChange={(e) => productChangeHandler(e)}>
                                             <option value="0">-----</option>
+
+                                            {
+                                                categoryItems ? (
+                                                    <>
+                                                        {
+                                                            categoryItems.map((item) => (
+                                                                <option key={item.id} value={item.id}>{item.name}</option>
+                                                            ))
+                                                        }
+                                                    </>
+                                                ) : (
+                                                    ""
+                                                )
+                                            }
+
                                         </select>
                                     </div>
                                 </div>
@@ -243,10 +433,10 @@ const KharidKhadamat = ({ allPost }) => {
 
                                 <div>
                                     <label>جستجو</label>
-                                    <input type="text" />
+                                    <input onChange={(e) => inputChangeHandler(e)} type="text" placeholder='' />
                                 </div>
 
-                                <div className="mt-5 py-3">
+                                <div onClick={(e) => submitFormHandler(e)} className="mt-2 py-3">
                                     <button>فیلتر</button>
                                 </div>
 
@@ -258,20 +448,7 @@ const KharidKhadamat = ({ allPost }) => {
 
                     <div className="col-9">
 
-                        {/* <ListData allData={allData} />
-
-                        <div className='row'>
-
-                            <PaginationPage
-                                items={allData.length}
-                                currentPage={currentPage}
-                                pageSize={pageSize}
-                                onPageChange={handelPageChange}
-                            />
-
-                        </div> */}
-
-                        <ListData allData={scrollData} />
+                        <ListData events={scrollData} />
 
                     </div>
 
@@ -284,4 +461,4 @@ const KharidKhadamat = ({ allPost }) => {
     )
 }
 
-export default KharidKhadamat;
+export default React.memo(KharidKhadamat);
