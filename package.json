@@ -35,6 +35,8 @@
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.2",
     "rtl": "^0.1.18",
+    "sass": "^1.58.3",
+    "scss": "^0.2.4",
     "styled-components": "^5.3.6",
     "swiper": "^8.4.5"
   }

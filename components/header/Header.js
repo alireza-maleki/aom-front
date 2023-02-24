@@ -93,12 +93,14 @@ const Header = () => {
                         <p onClick={sabtAgahiHandler}>
                             ثبت آگهی رایگان
                         </p>
-                        <button className={classes.login}>
-                            <Link href="/register">ورود</Link>
+                        {/* <button className={classes.login}> */}
+                        <div className={classes.login}>
+                            <Link href="/register">ثبت نام</Link>
                             <span>
                                 <AiOutlineUser />
                             </span>
-                        </button>
+                        </div>
+                        {/* </button> */}
                     </div>
                 </div>
 
