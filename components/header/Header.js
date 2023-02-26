@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 
 
 import classes from "./Header.module.css";
@@ -10,7 +10,24 @@ import Popup from '../popup/Popup';
 import Link from 'next/link';
 
 
+import RegisterContextApi from '../contexts/RegisterContext';
+
+
 const Header = () => {
+
+    const registerCtx = useContext(RegisterContextApi);
+    console.log(registerCtx);
+
+
+    useEffect(() => {
+
+        const userToken = localStorage.getItem('access_token');
+        if (userToken) {
+            registerCtx.setIsLoggedIn(true);
+        }
+
+    }, []);
+
 
     const [agahi, setAgahi] = useState(false);
 
@@ -93,14 +110,23 @@ const Header = () => {
                         <p onClick={sabtAgahiHandler}>
                             ثبت آگهی رایگان
                         </p>
-                        {/* <button className={classes.login}> */}
-                        <div className={classes.login}>
-                            <Link href="/register">ثبت نام</Link>
-                            <span>
-                                <AiOutlineUser />
-                            </span>
-                        </div>
-                        {/* </button> */}
+
+                        {
+                            registerCtx.isLoggenIn ? (
+                                <>
+                                    <p>پنل کاربری</p>
+                                </>
+                            ) : (
+                                <div className={classes.login}>
+                                    <Link href="/register">ثبت نام</Link>
+                                    <span>
+                                        <AiOutlineUser />
+                                    </span>
+                                </div>
+                            )
+
+                        }
+
                     </div>
                 </div>
 

@@ -188,7 +188,7 @@ const Register = () => {
             // userNumber.toString();
             // JSON.parse(userNumber)
 
-            const { data } = await axios.post("http://94.139.163.188:1313/accounts/v1/login/", {
+            const { data } = await axios.post("http://192.168.0.112:1313/accounts/v1/login/", {
                 'phone_number': userNumber,
 
                 headers: {
@@ -244,9 +244,9 @@ const Register = () => {
                             <button onClick={formSubmitHandler}>ارسال اطلاعات</button>
                         </div>
 
-                        <div>
+                        {/* <div>
                             <button onClick={existHandler}>خروج</button>
-                        </div>
+                        </div> */}
 
                     </div>
 
