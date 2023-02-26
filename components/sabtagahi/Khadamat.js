@@ -60,7 +60,7 @@ const Khadamat = () => {
 
             try {
 
-                const { data } = await axios.get("http://94.139.163.188:1313/advert/v1/get-good-categorys/");
+                const { data } = await axios.get("http://192.168.0.112:1313/advert/v1/get-good-categorys/");
                 setSelectData(data);
 
             } catch (error) {
@@ -85,7 +85,7 @@ const Khadamat = () => {
 
         } else {
             try {
-                const category = await axios.get(`http://94.139.163.188:1313/advert/v1/category-childs/${e.target.value}/`)
+                const category = await axios.get(`http://192.168.0.112:1313/advert/v1/category-childs/${e.target.value}/`)
 
                 console.log(category.data.products)
 
@@ -110,7 +110,7 @@ const Khadamat = () => {
     // ### Get Contry ###
     const sakhtDataOnclick = async () => {
 
-        const { data } = await axios.get("http://94.139.163.188:1313/advert/v1/countrys-made-by/");
+        const { data } = await axios.get("http://192.168.0.112:1313/advert/v1/countrys-made-by/");
         setGetSakht(data);
         console.log(data);
     }
@@ -123,7 +123,7 @@ const Khadamat = () => {
 
     // ### Get Ostan ###
     const ostanDataOnclick = async () => {
-        const { data } = await axios.get("http://94.139.163.188:1313/advert/v1/citys/");
+        const { data } = await axios.get("http://192.168.0.112:1313/advert/v1/citys/");
         setGetOstan(data);
         console.log(data);
     }
@@ -135,7 +135,7 @@ const Khadamat = () => {
 
     // ### Get Brand ###
     const brandOnclick = async () => {
-        const { data } = await axios.get("http://94.139.163.188:1313/advert/v1/brands/");
+        const { data } = await axios.get("http://192.168.0.112:1313/advert/v1/brands/");
         setGetBrand(data);
         console.log(data);
     };
@@ -195,7 +195,7 @@ const Khadamat = () => {
 
         e.preventDefault();
 
-        axios.post("http://94.139.163.188:1313/advert/v1/make-advert/", agahiDetail)
+        axios.post("http://192.168.0.112:1313/advert/v1/make-advert/", agahiDetail)
             .then((response) => {
                 console.log(response);
             })

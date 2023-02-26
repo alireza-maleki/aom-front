@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 
 
 const RegisterContextApi = React.createContext({
-    isLoggenIn: false,
+    isLoggenIn: true,
+    setIsLoggedIn: () => { },
     regiserCode: '',
     onLogOut: () => { },
     onLogin: (phone) => { },
@@ -13,7 +14,7 @@ const RegisterContextApi = React.createContext({
 export const RegisterContextProvider = (props) => {
 
     // ### Handler User Loggin / Register ###
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState();
 
     // ### Save Register Code ###
     const [regiserCode, setRegisterCode] = useState();
@@ -34,7 +35,7 @@ export const RegisterContextProvider = (props) => {
         localStorage.setItem(`isLoggedIn-ctx => ${phone} `, phone);
 
         console.log("login - ctx")
-        setIsLoggedIn(true);
+        // setIsLoggedIn(true);
     }
 
     // ===
@@ -52,6 +53,7 @@ export const RegisterContextProvider = (props) => {
     return (
         <RegisterContextApi.Provider
             value={{
+                setIsLoggedIn: setIsLoggedIn,
                 setRegisterCode: setRegisterCode,
                 regiserCode: regiserCode,
                 isLoggedIn: isLoggedIn,

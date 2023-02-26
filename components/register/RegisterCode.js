@@ -10,9 +10,13 @@ import Stack from '@mui/material/Stack';
 
 import axios from "axios";
 
+import { useRouter } from "next/router";
+
 
 
 function RegisterCode() {
+
+    const routes = useRouter();
 
     const [enterCode, setEnterCode] = useState();
     const [showError, setShowError] = useState(false);
@@ -30,8 +34,9 @@ function RegisterCode() {
     // console.log(typeof enterCode)
 
 
+    // === Show Error To User ===
     const showErrorToUser = <Stack sx={{ width: '100%' }} spacing={2}>
-        <Alert severity="error">کد وارد شده اشتباه است.</Alert>
+        <Alert severity="error" className="fw-bold fs-5">کد وارد شده اشتباه است.</Alert>
     </Stack>
 
 
@@ -42,11 +47,19 @@ function RegisterCode() {
 
         if (registerCtx.regiserCode === enterCode) {
 
-            const data = await axios.post("http://94.139.163.188:1313/accounts/v1/login_verify/", {
+            const data = await axios.post("http://192.168.0.112:1313/accounts/v1/login_verify/", {
                 "code": enterCode
             })
 
-            console.log(data)
+            registerCtx.setIsLoggedIn(true);
+
+            console.log(registerCtx.isLoggenIn);
+
+            routes.push("/");
+
+            localStorage.setItem("access_token", data.data.access);
+
+            console.log(data.data.access);
 
         } else {
             // alert("کد وارد شده اشتباه است.")
@@ -60,9 +73,13 @@ function RegisterCode() {
 
     useEffect(() => {
 
-        setInterval(() => {
-            
+        const error = setInterval(() => {
+            setShowError(false);
         }, 5000);
+
+        return () => {
+            clearInterval(error);
+        }
 
     }, [showError])
 
